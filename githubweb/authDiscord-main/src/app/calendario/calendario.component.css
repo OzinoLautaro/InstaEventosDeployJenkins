@@ -1,0 +1,59 @@
+h1{
+    text-align: center;
+    margin-top: 1%;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 85px;
+    
+    
+    
+}
+h2{
+    margin-left: 3%;
+    margin-top: 3%;
+}
+h4{
+   margin-top: 5%;
+   text-align: center;
+   color: black;
+}
+p{
+   text-align: center;
+   
+   color: black;
+}
+.btn{
+   margin-right:25%;
+   margin-left:25%;
+   margin-bottom:5%;
+}
+.card{
+   margin-top: 3%;
+   margin-left: 50%;
+   margin-right: 5%;
+   background-color:   #cfd6ff;
+   border-color: black;
+   border-width: 2px;
+   
+   
+ 
+}
+.contenedor{
+   background-size: cover;
+}
+
+.card-body{
+ display: table-cell;
+ padding: 40px;
+}
+.animate__animated.animate__bounceInLeft {
+   --animate-duration: 1.5s;
+ }
+ .card:hover{
+    border-color: #E42121;
+    border-width: 4px;
+}
+.card-body2{
+   display: table-cell;
+   padding: 40px;
+   
+  }

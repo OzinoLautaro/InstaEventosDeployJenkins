@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "discordbot-946b9": {
+      "hosting": {
+        "authDiscord": [
+          "discordbot-946b9"
+        ]
+      }
+    }
+  }
+}
