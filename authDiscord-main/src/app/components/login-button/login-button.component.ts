@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
+import { OauthService } from 'src/app/services/oauth.service';
+import { DISCORD_LOGIN_URL } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login-button',
@@ -9,13 +10,29 @@ import { AuthService } from '@auth0/auth0-angular';
 })
 export class LoginButtonComponent implements OnInit {
 
-  constructor(public auth: AuthService) { }
+  url = DISCORD_LOGIN_URL;
 
-  ngOnInit(): void {
+  isLoggedIn:boolean;
+
+  userIcon: string = "";
+
+  userName:string = "";
+
+  constructor(public _oauth: OauthService) {
+    this.isLoggedIn = localStorage.getItem('token') ? true : false;
   }
 
-  loginWithRedirect(): void{
-    this.auth.loginWithRedirect();
+  ngOnInit(): void {
+    if (this.isLoggedIn) {
+      this._oauth.getUser().subscribe(res => {
+      this.userIcon = res.avatar ? `https://cdn.discordapp.com/icons/${res.id}/${res.avatar}` : 'https://discordapp.com/assets/322c936a8c8be1b803cd94861bdfa868.png';
+      this.userName = res.username;
+    })
+    }
+  }
+
+  loginConDiscord = () => {
+    window.location.href = this.url;
   }
 
 }
