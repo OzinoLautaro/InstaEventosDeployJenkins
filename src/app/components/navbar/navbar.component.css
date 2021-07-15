@@ -14,6 +14,10 @@
     margin-left: auto;
 }
 
+.navbar-link-button:hover {
+    color: #7885B1 !important;
+}
+
 @media screen and (max-width: 800px) {
     .navbar-link-button {
         display: none;
