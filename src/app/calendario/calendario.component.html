@@ -1,0 +1,18 @@
+
+<div class="contenedor">
+  <h1 class="animate__animated animate__zoomIn"> EVENTOS </h1>
+  <div class="crear-evento-btn">
+    <button class="btn btn-success" routerLink="/crear-evento">Crear evento</button>
+  </div>
+  <div *ngFor="let evento of eventos" class="card-body ">
+    <div class="card animate__animated animate__bounceInLeft" style="width: 20rem ">
+      <img src="assets/img/evento.png" class="card-img-top" alt="...">
+      <h4 class="card-title ">{{ evento.nombre }}</h4>
+      <p class="card-text ">{{ evento.descripcion }}</p>
+      <p class="card-text">{{ evento.fecha }}</p>
+      <a href="#" class="btn btn-primary btn-unirse">Unirse</a>
+    </div>
+  </div>
+</div>
+
+
