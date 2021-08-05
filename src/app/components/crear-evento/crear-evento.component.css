@@ -10,6 +10,7 @@
 
 .crear-evento-card {
     background: #fff;
+    border: 2px solid #5559;
     width: 450px;
     height: 550px;
     padding: 30px 50px;

@@ -1,0 +1,37 @@
+
+.mis-eventos-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 64px);
+}
+
+.mis-eventos-card {
+    background: #fff;
+    border: 1px solid #5559;
+    border-radius: 8px;
+    padding: 20px 20px;
+    width: 550px;
+    height: 450px;
+}
+
+.mis-eventos-card h2 {
+    padding-bottom: 15px;
+}
+
+.evento-container {
+    padding: 15px 20px;
+    border-top: 1px solid #5555;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.evento-container:last-child {
+    border-bottom: 1px solid #5555;
+}
+
+.boton-editar {
+    margin-right: 20px;
+}
+

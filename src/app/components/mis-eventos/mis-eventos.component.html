@@ -1,0 +1,12 @@
+<div class="mis-eventos-container">
+    <div class="mis-eventos-card">
+        <h2>Mis eventos</h2>
+        <div class="evento-container" *ngFor="let evento of misEventos">
+            {{ evento.nombre }}
+            <div class="botones-evento">
+                <button class="btn btn-success boton-editar">Editar</button>
+                <button class="btn btn-danger">Borrar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -4,6 +4,7 @@ import { CalendarioComponent } from './calendario/calendario.component';
 import { ComandosComponent } from './comandos/comandos.component'
 import { CrearEventoComponent } from './components/crear-evento/crear-evento.component';
 import { LoginComponent } from './components/login/login.component';
+import { MisEventosComponent } from './components/mis-eventos/mis-eventos.component';
 import { PrincipalComponent } from './principal/principal.component';
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path:'principal', component:PrincipalComponent},
   {path:'crear-evento', component:CrearEventoComponent},
   {path: 'login', component: LoginComponent},
-  {path:'',redirectTo: '/principal',pathMatch:'full'},
+  {path: 'mis-eventos', component: MisEventosComponent},
+  {path:'', redirectTo: '/principal',pathMatch:'full'},
   {path: '**', redirectTo: '/principal', pathMatch: 'full'}
  
 ];

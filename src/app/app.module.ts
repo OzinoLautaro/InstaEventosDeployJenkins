@@ -16,6 +16,7 @@ import { CommonModule } from "@angular/common";
 import { CalendarioComponent } from './calendario/calendario.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CrearEventoComponent } from './components/crear-evento/crear-evento.component';
+import { MisEventosComponent } from './components/mis-eventos/mis-eventos.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CrearEventoComponent } from './components/crear-evento/crear-evento.com
     CalendarioComponent,
     LoginComponent,
     NavbarComponent,
-    CrearEventoComponent
+    CrearEventoComponent,
+    MisEventosComponent
   ],
   imports: [
     BrowserModule,
