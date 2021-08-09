@@ -31,7 +31,62 @@
     border-bottom: 1px solid #5555;
 }
 
-.boton-editar {
-    margin-right: 20px;
+.botones-evento {
+    display: flex;
+    gap: 15px;
 }
 
+.lista-eventos {
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 320px;
+    margin-top: 20px;
+}
+
+.borrar-cartel-fondo {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background: #5552;
+    justify-content: center;
+    align-items: center;
+}
+
+.borrar-cartel {
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #5559;
+    width: 450px;
+}
+
+.editar-cartel-fondo {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background: #5552;
+    justify-content: center;
+    align-items: center;
+}
+
+.editar-cartel {
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #5559;
+    width: 450px;
+}
+
+.label-editar {
+    text-transform: capitalize;
+}
+
+textarea {
+    resize: none;
+    overflow: visible;
+    border-radius: 5px;
+    border: 2px solid #21212150;
+    padding: 7px 12px;
+}
