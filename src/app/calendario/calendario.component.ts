@@ -32,8 +32,10 @@ export class CalendarioComponent implements OnInit {
     this._eventoService.getEventos().subscribe(data => {
       this.eventos = [];
       data.forEach((element: any) => {
+        let urlImagen = element.payload.doc.data().imgUrl ?? 'https://discordapp.com/assets/322c936a8c8be1b803cd94861bdfa868.png';
         this.eventos.push({
           id: element.payload.doc.id,
+          url: urlImagen,
           ...element.payload.doc.data()
         })
       });

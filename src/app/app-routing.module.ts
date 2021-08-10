@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuardService as AuthGuard } from './auth/auth-guard.service';
 import { CalendarioComponent } from './calendario/calendario.component';
 import { ComandosComponent } from './comandos/comandos.component'
 import { CrearEventoComponent } from './components/crear-evento/crear-evento.component';
@@ -13,7 +14,7 @@ const routes: Routes = [
   {path:'principal', component:PrincipalComponent},
   {path:'crear-evento', component:CrearEventoComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'mis-eventos', component: MisEventosComponent},
+  {path: 'mis-eventos', component: MisEventosComponent, canActivate: [AuthGuard]},
   {path:'', redirectTo: '/principal',pathMatch:'full'},
   {path: '**', redirectTo: '/principal', pathMatch: 'full'}
  

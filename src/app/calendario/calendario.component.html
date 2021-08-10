@@ -1,54 +1,18 @@
 
 <div class="contenedor">
-  <h1 class="animate__animated animate__zoomIn"> EVENTOS </h1>
-  <div class="crear-evento-btn">
-    <button class="btn btn-success" routerLink="/crear-evento">Crear evento</button>
+  <div class="titulo-div">
+    <h1>Eventos</h1>
+    <button class="btn btn-success" routerLink="/crear-evento">+ Crear evento</button>
   </div>
-  <div *ngFor="let evento of eventos" class="card-body ">
-    <div class="card animate__animated animate__bounceInLeft" style="width: 20rem ">
-      <img src="assets/img/evento.png" class="card-img-top" alt="...">
-      <h4 class="card-title ">{{ evento.nombre }}</h4>
+  <div class="eventos-flex">
+    <div *ngFor="let evento of eventos" class="card">
+      <img src="{{evento.url}}" class="card-img-top" alt="...">
+      <h2 class="card-title ">{{ evento.nombre }}</h2>
       <p class="card-text ">{{ evento.descripcion }}</p>
       <p class="card-text">{{ evento.fecha }}</p>
       <div class="botones-evento d-flex">
-        <a href="#" class="btn btn-primary btn-unirse">Unirse</a>
-        <div class="dropdown">
-          <a href="#" class="btn btn-primary btn-mas dropdown-toggle" data-bs-toggle="dropdown">Más</a>
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-primary">
-            <li><a (click)="mostrarEditar('nombre', evento.id)" class="dropdown-item">Editar nombre</a></li>
-            <li><a (click)="mostrarEditar('fecha', evento.id)" class="dropdown-item">Editar fecha</a></li>
-            <li><a (click)="mostrarEditar('descripcion', evento.id)" class="dropdown-item">Editar descripcion</a></li>
-            <li><a (click)="eliminarEvento(evento.id)" class="dropdown-item text-danger">Eliminar evento</a></li>
-          </ul>
-        </div>
+        <a class="btn btn-primary btn-unirse">Unirse</a>
       </div>
     </div>
   </div>
-</div>
-
-<div class="container-editar" id="nombre">
-  <form class="form-editar" [formGroup]="editarEvento" (ngSubmit)="modificarEvento('nombre')">
-    <h3>Editar nombre</h3>
-    <label for="nombre-editar" class="mt-3">Nombre:</label>
-    <input type="text" class="form-control form-control-lg mt-1" placeholder="Nombre nuevo" formControlName="nombre">
-    <button class="btn btn-primary mt-4">Editar</button>
-  </form>
-</div>
-
-<div class="container-editar" id="fecha">
-  <form class="form-editar" [formGroup]="editarEvento" (ngSubmit)="modificarEvento('fecha')">
-    <h3>Editar fecha</h3>
-    <label for="nombre-editar" class="mt-3">Fecha:</label>
-    <input type="datetime-local" class="form-control form-control-lg mt-1" placeholder="Fecha nueva" formControlName="fecha">
-    <button class="btn btn-primary mt-4">Editar</button>
-  </form>
-</div>
-
-<div class="container-editar" id="descripcion">
-  <form class="form-editar" [formGroup]="editarEvento" (ngSubmit)="modificarEvento('descripcion')">
-    <h3>Editar descripcion</h3>
-    <label for="nombre-editar" class="mt-3">Descripcion:</label>
-    <input type="text" class="form-control form-control-lg mt-1" placeholder="Descripcion nueva" formControlName="descripcion">
-    <button class="btn btn-primary mt-4">Editar</button>
-  </form>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { EventoService } from 'src/app/services/evento.service';
 import { OauthService } from 'src/app/services/oauth.service';
 
@@ -18,7 +19,7 @@ export class MisEventosComponent implements OnInit {
 
   editarEventoForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private _eventoService: EventoService, private _oauth: OauthService) {
+  constructor(private fb: FormBuilder, private _eventoService: EventoService, private _oauth: OauthService, private router: Router) {
     this.editarEventoForm = this.fb.group({
       data: ['', Validators.required]
     });
@@ -77,15 +78,31 @@ export class MisEventosComponent implements OnInit {
   }
 
   editarEvento = () => {
-    console.log(this.editarEventoForm.value.data);
-    console.log(this.opcionElegidaEditar);
     const cartelEditar: any = document.querySelector(".editar-cartel-fondo");
     cartelEditar.style.display = "none";
-    /*this._eventoService.actualizarEvento(this.eventoElegido, {}).then(() => {
+    let obj = {};
+    if (this.opcionElegidaEditar == 'nombre') {
+      obj = {
+        nombre: this.editarEventoForm.value.data
+      }
+    }
+    else if (this.opcionElegidaEditar == 'descripcion') {
+      obj = {
+        descripcion: this.editarEventoForm.value.data
+      }
+    }
+    else if (this.opcionElegidaEditar == 'fecha') {
+      obj = {
+        fecha: this.editarEventoForm.value.data
+      }
+    }
+    else return;
+    this._eventoService.actualizarEvento(this.eventoElegido, obj).then(() => {
       console.log("Evento editado correctamente");
+      window.location.href = '/mis-eventos';
     }).catch(error => {
       console.log(error);
-    })*/
+    })
     this.eventoElegido = "";
     this.opcionElegidaEditar = "";
   }

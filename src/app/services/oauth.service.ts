@@ -61,4 +61,8 @@ export class OauthService {
     window.location.href = '/';
   }
 
+  isLoggedIn(): boolean {
+    return localStorage.getItem('token') ? true : false;
+  }
+
 }
