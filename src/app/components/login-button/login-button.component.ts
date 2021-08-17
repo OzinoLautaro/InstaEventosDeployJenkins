@@ -26,6 +26,9 @@ export class LoginButtonComponent implements OnInit {
         this.userName = res.username;
       })
     }
+    /* this._oauth.getGuildUsers(877238470924443658).subscribe(data => {
+      console.log(data);
+    }) */
   }
 
   loginConDiscord = () => {

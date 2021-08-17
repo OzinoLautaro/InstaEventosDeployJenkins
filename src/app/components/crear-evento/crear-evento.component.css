@@ -148,3 +148,7 @@
 #descripcion-evento::-webkit-scrollbar-track { background: #f1f1f1 }
 #descripcion-evento::-webkit-scrollbar-thumb { background: #888 }
 #descripcion-evento::-webkit-scrollbar-thumb:hover { background: #555 }
+
+#circulo-2 {
+    cursor: pointer;
+}

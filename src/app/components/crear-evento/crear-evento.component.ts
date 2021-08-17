@@ -39,14 +39,15 @@ export class CrearEventoComponent implements OnInit, AfterViewInit {
     if (this.isLoggedIn) {
       this._oauth.getGuilds().subscribe(data => {
         for (let guild of data) {
-          let urlImagen = guild.icon ? `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png` : 'https://discordapp.com/assets/322c936a8c8be1b803cd94861bdfa868.png';
-          this.misServers.push(
-            {
-              ...guild,
-              userIcon: urlImagen
-            }
-          );
-          console.log(guild);
+          if ((guild.permissions & 0x0000000020) == 0x0000000020) {
+            let urlImagen = guild.icon ? `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png` : 'https://discordapp.com/assets/322c936a8c8be1b803cd94861bdfa868.png';
+            this.misServers.push(
+              {
+                ...guild,
+                userIcon: urlImagen
+              }
+            );
+          }
         }
       })
       this._oauth.getUser().subscribe(data => {
@@ -60,6 +61,7 @@ export class CrearEventoComponent implements OnInit, AfterViewInit {
   }
 
   mostrarElegirServer = () => {
+    this.serverElegido = "";
     const circuloLogin: any = document.getElementById('circulo-1');
     const circuloServers: any = document.getElementById('circulo-2');
     const circuloEvento: any = document.getElementById('circulo-3');
