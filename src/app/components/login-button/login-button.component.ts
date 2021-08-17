@@ -22,7 +22,7 @@ export class LoginButtonComponent implements OnInit {
   ngOnInit(): void {
     if (this._oauth.isLoggedIn()) {
       this._oauth.getUser().subscribe(res => {
-        this.userIcon = res.avatar ? `https://cdn.discordapp.com/icons/${res.id}/${res.avatar}` : 'https://discordapp.com/assets/322c936a8c8be1b803cd94861bdfa868.png';
+        this.userIcon = res.avatar ? `https://cdn.discordapp.com/icons/${res.id}/${res.avatar}.png` : 'https://discordapp.com/assets/322c936a8c8be1b803cd94861bdfa868.png';
         this.userName = res.username;
       })
     }

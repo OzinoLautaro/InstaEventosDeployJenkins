@@ -38,7 +38,16 @@ export class CrearEventoComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     if (this.isLoggedIn) {
       this._oauth.getGuilds().subscribe(data => {
-        this.misServers.push(...data);
+        for (let guild of data) {
+          let urlImagen = guild.icon ? `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png` : 'https://discordapp.com/assets/322c936a8c8be1b803cd94861bdfa868.png';
+          this.misServers.push(
+            {
+              ...guild,
+              userIcon: urlImagen
+            }
+          );
+          console.log(guild);
+        }
       })
       this._oauth.getUser().subscribe(data => {
         this.userId = data.id;

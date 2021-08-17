@@ -17,6 +17,7 @@ import { CalendarioComponent } from './calendario/calendario.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CrearEventoComponent } from './components/crear-evento/crear-evento.component';
 import { MisEventosComponent } from './components/mis-eventos/mis-eventos.component';
+import { PayButtonComponent } from './components/pay-button/pay-button.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MisEventosComponent } from './components/mis-eventos/mis-eventos.compon
     LoginComponent,
     NavbarComponent,
     CrearEventoComponent,
-    MisEventosComponent
+    MisEventosComponent,
+    PayButtonComponent
   ],
   imports: [
     BrowserModule,

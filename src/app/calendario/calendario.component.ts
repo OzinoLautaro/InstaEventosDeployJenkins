@@ -68,22 +68,26 @@ export class CalendarioComponent implements OnInit {
       };
     }
 
-    this._eventoService.actualizarEvento(this.eventoElegidoEditar, obj).then(() => {
-      console.log("Evento editado");
-      alert("Evento editado");
-      this.router.navigate(['/principal'])
-    }).catch(error => {
-      console.log(error);
-    })
+    this._eventoService.actualizarEvento(this.eventoElegidoEditar, obj)
+      .then(() => {
+        console.log("Evento editado");
+        alert("Evento editado");
+        this.router.navigate(['/principal'])
+      })
+      .catch(error => {
+        console.log(error);
+      })
   }
 
   eliminarEvento = (eventoId: any) => {
-    this._eventoService.eliminarEvento(eventoId).then(() => {
-      console.log("Evento eliminado");
-      alert("Evento eliminado");
-    }).catch(error => {
-      console.log(error);
-    })
+    this._eventoService.eliminarEvento(eventoId)
+      .then(() => {
+        console.log("Evento eliminado");
+        alert("Evento eliminado");
+      })
+      .catch(error => {
+        console.log(error);
+      })
   }
 }
 
