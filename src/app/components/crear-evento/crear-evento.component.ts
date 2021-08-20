@@ -109,6 +109,7 @@ export class CrearEventoComponent implements OnInit, AfterViewInit {
       nombre: this.crearEvento.value.nombre,
       fecha: fechaEvento,
       descripcion: this.crearEvento.value.descripcion
+      
     }
     
     this._eventoService.agregarEvento(obj).then(() => {
