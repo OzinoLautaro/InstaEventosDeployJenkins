@@ -12,4 +12,7 @@ export class PayButtonComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  generarPago = () => {
+    console.log("Evento comprado")
+  }
 }
