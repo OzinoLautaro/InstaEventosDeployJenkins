@@ -21,7 +21,7 @@
             <div class="server-div" *ngFor="let server of misServers" style="background-image: url({{server.userIcon}});" (click)="elegirServer(server.id)">{{server.name}}</div>
         </div>
         <form class="evento-formulario" [formGroup]="crearEvento" (ngSubmit)="agregarEvento()">
-            <span class="mb-3 text-danger" *ngIf="submitted && crearEvento.invalid">TODOS LOS CAMPOS SON OBLIGATORIOS</span>
+            <span class="mb-2 text-danger" *ngIf="submitted && crearEvento.invalid">TODOS LOS CAMPOS SON OBLIGATORIOS</span>
             <label for="nombre-evento">Nombre:</label>
             <input type="text" id="nombre-evento" placeholder="Nombre del evento" formControlName="nombre" required>
             <label for="fecha-evento">Fecha:</label>

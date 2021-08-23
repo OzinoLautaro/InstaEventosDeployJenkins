@@ -12,8 +12,7 @@
     background: #fff;
     border: 2px solid #5559;
     width: 450px;
-    height: 550px;
-    padding: 30px 50px;
+    padding: 25px 50px;
     border-radius: 15px;
 }
 
@@ -32,7 +31,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 5px;
 }
 
 .circle-step {
@@ -54,7 +52,8 @@
 
 .login-container {
     text-align: center;
-    margin-top: 60px;
+    margin-top: 50px;
+    margin-bottom: 20px;
 }
 
 .login-container p {
@@ -106,7 +105,7 @@
 .evento-formulario {
     display: none;
     flex-direction: column;
-    margin-top: 25px;
+    margin-top: 20px;
 }
 
 .submit-btn-container {
@@ -131,8 +130,8 @@
 .evento-formulario input {
     border-radius: 5px;
     border: 2px solid #21212150;
-    padding: 7px 12px;
-    margin-bottom: 20px;
+    padding: 4px 9px;
+    margin-bottom: 10px;
 }
 
 #descripcion-evento {
@@ -140,7 +139,7 @@
     overflow: visible;
     border-radius: 5px;
     border: 2px solid #21212150;
-    padding: 7px 12px;
+    padding: 4px 9px;
 }
 
 /* Custom scrollbar */
@@ -148,7 +147,3 @@
 #descripcion-evento::-webkit-scrollbar-track { background: #f1f1f1 }
 #descripcion-evento::-webkit-scrollbar-thumb { background: #888 }
 #descripcion-evento::-webkit-scrollbar-thumb:hover { background: #555 }
-
-#circulo-2 {
-    cursor: pointer;
-}

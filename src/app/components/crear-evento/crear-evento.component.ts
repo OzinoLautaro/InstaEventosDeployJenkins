@@ -41,12 +41,10 @@ export class CrearEventoComponent implements OnInit, AfterViewInit {
         for (let guild of data) {
           if ((guild.permissions & 0x0000000020) == 0x0000000020) {
             let urlImagen = guild.icon ? `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png` : 'https://discordapp.com/assets/322c936a8c8be1b803cd94861bdfa868.png';
-            this.misServers.push(
-              {
-                ...guild,
-                userIcon: urlImagen
-              }
-            );
+            this.misServers.push({
+              ...guild,
+              userIcon: urlImagen
+            });
           }
         }
       })
@@ -61,25 +59,28 @@ export class CrearEventoComponent implements OnInit, AfterViewInit {
   }
 
   mostrarElegirServer = () => {
-    this.serverElegido = "";
-    const circuloLogin: any = document.getElementById('circulo-1');
-    const circuloServers: any = document.getElementById('circulo-2');
-    const circuloEvento: any = document.getElementById('circulo-3');
-    const stepLogin: any = document.querySelector('.login-container');
-    const stepServer: any = document.querySelector('.servers-container');
-    const stepEvento: any = document.querySelector('.evento-formulario');
-    const pasoUno: any = document.querySelector('.step:first-child');
-    const pasoDos: any = document.querySelector('.step:nth-child(2)');
-    const pasoTres: any = document.querySelector('.step:last-child');
-    circuloLogin.style.background = 'transparent';
-    circuloServers.style.background = '#f66';
-    circuloEvento.style.background = 'transparent';
-    stepLogin.style.display = 'none';
-    stepServer.style.display = 'grid';
-    stepEvento.style.display = 'none';
-    pasoUno.style.color = '#3337';
-    pasoDos.style.color = '#212121';
-    pasoTres.style.color = '#3337';
+    if (this.isLoggedIn) {
+      this.serverElegido = "";
+      const circuloLogin: any = document.getElementById('circulo-1');
+      const circuloServers: any = document.getElementById('circulo-2');
+      const circuloEvento: any = document.getElementById('circulo-3');
+      const stepLogin: any = document.querySelector('.login-container');
+      const stepServer: any = document.querySelector('.servers-container');
+      const stepEvento: any = document.querySelector('.evento-formulario');
+      const pasoUno: any = document.querySelector('.step:first-child');
+      const pasoDos: any = document.querySelector('.step:nth-child(2)');
+      const pasoTres: any = document.querySelector('.step:last-child');
+      circuloLogin.style.background = 'transparent';
+      circuloServers.style.background = '#f66';
+      circuloServers.style.cursor = 'default';
+      circuloEvento.style.background = 'transparent';
+      stepLogin.style.display = 'none';
+      stepServer.style.display = 'grid';
+      stepEvento.style.display = 'none';
+      pasoUno.style.color = '#3337';
+      pasoDos.style.color = '#212121';
+      pasoTres.style.color = '#3337';
+    }
   }
 
   loginConDiscord = () => {
@@ -98,6 +99,7 @@ export class CrearEventoComponent implements OnInit, AfterViewInit {
     const pasoTres: any = document.querySelector('.step:last-child');
     circuloLogin.style.background = 'transparent';
     circuloServers.style.background = 'transparent';
+    circuloServers.style.cursor = 'pointer';
     circuloEvento.style.background = '#6fa';
     stepLogin.style.display = 'none';
     stepServer.style.display = 'none';
