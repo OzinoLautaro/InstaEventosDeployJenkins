@@ -1,0 +1,48 @@
+
+.container-payment {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 30px 50px;
+    gap: 20px;
+    justify-content: space-around;
+    height: calc(100vh - 124px);
+}
+
+.card-payment {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 2px solid #212121;
+    border-bottom: 4px solid #212121;
+    border-radius: 8px;
+    padding: 20px;
+    width: 350px;
+}
+
+.card-payment h4 {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.card-payment span {
+    margin: 35px 0;
+    text-align: center;
+    font-size: 4.8rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 0 0 #000,
+                 1px 0 0 #000,
+                 1px 0 0 #000,
+                -1px 0 0 #000,
+                -1px 0 0 #000,
+                -1px 0 0 #000,
+                 0 1px 0 #000,
+                 0 1px 0 #000,
+                 0 1px 0 #000,
+                 0 -1px 0 #000,
+                 0 -1px 0 #000,
+                 0 -1px 0 #000;
+}
+
+

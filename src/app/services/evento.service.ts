@@ -24,4 +24,6 @@ export class EventoService {
   actualizarEvento(id: any, data:any): Promise<any> {
     return this.firestore.collection('eventos').doc(id).update(data);
   }
+
+
 }
