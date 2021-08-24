@@ -33,9 +33,17 @@ export class CalendarioComponent implements OnInit {
       this.eventos = [];
       data.forEach((element: any) => {
         let urlImagen = element.payload.doc.data().imgUrl ?? 'https://discordapp.com/assets/322c936a8c8be1b803cd94861bdfa868.png';
+        let fecha: Date = new Date(element.payload.doc.data().fecha);
+        let date: string = fecha.getDate() < 10 ? '0' + fecha.getDate() : fecha.getDate().toString();
+        let mes: string = fecha.getMonth() < 10 ? '0' + fecha.getMonth() : fecha.getMonth().toString();
+        let hora: string = fecha.getHours() < 10 ? '0' + fecha.getHours() : fecha.getHours().toString();
+        let minutos: string = fecha.getMinutes() < 10 ? '0' + fecha.getMinutes() : fecha.getMinutes().toString();
+        let segundos: string = fecha.getSeconds() < 10 ? '0' + fecha.getSeconds() : fecha.getSeconds().toString();
+        let fechaArreglada: string = fecha.getFullYear() + '-' + mes + '-' + date + ' ' + hora + ':' + minutos + ':' + segundos;
         this.eventos.push({
           id: element.payload.doc.id,
           url: urlImagen,
+          fechaArreglada,
           ...element.payload.doc.data()
         })
       });
@@ -68,22 +76,26 @@ export class CalendarioComponent implements OnInit {
       };
     }
 
-    this._eventoService.actualizarEvento(this.eventoElegidoEditar, obj).then(() => {
-      console.log("Evento editado");
-      alert("Evento editado");
-      this.router.navigate(['/principal'])
-    }).catch(error => {
-      console.log(error);
-    })
+    this._eventoService.actualizarEvento(this.eventoElegidoEditar, obj)
+      .then(() => {
+        console.log("Evento editado");
+        alert("Evento editado");
+        this.router.navigate(['/principal'])
+      })
+      .catch(error => {
+        console.log(error);
+      })
   }
 
   eliminarEvento = (eventoId: any) => {
-    this._eventoService.eliminarEvento(eventoId).then(() => {
-      console.log("Evento eliminado");
-      alert("Evento eliminado");
-    }).catch(error => {
-      console.log(error);
-    })
+    this._eventoService.eliminarEvento(eventoId)
+      .then(() => {
+        console.log("Evento eliminado");
+        alert("Evento eliminado");
+      })
+      .catch(error => {
+        console.log(error);
+      })
   }
 }
 

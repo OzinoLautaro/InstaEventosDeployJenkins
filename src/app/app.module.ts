@@ -17,6 +17,8 @@ import { CalendarioComponent } from './calendario/calendario.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CrearEventoComponent } from './components/crear-evento/crear-evento.component';
 import { MisEventosComponent } from './components/mis-eventos/mis-eventos.component';
+import { PayButtonComponent } from './components/pay-button/pay-button.component';
+import { NgxMercadopagoModule } from 'ngx-mercadopago';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { MisEventosComponent } from './components/mis-eventos/mis-eventos.compon
     LoginComponent,
     NavbarComponent,
     CrearEventoComponent,
-    MisEventosComponent
+    MisEventosComponent,
+    PayButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,10 @@ import { MisEventosComponent } from './components/mis-eventos/mis-eventos.compon
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgxMercadopagoModule.forRoot({
+      publishKey: 'Your Publish Key',
+      pathSDK: 'https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js'
+    }),
     AuthModule.forRoot({
       ...env.auth,
     })
