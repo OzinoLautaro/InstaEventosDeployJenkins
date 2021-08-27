@@ -45,7 +45,7 @@ import { PremiumComponent } from './components/premium/premium.component';
     ReactiveFormsModule,
     HttpClientModule,
     NgxMercadopagoModule.forRoot({
-      publishKey: 'Your Publish Key',
+      publishKey: 'TEST-a535f7cd-0217-4c82-8f48-04793bebfc27',
       pathSDK: 'https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js'
     }),
     AuthModule.forRoot({
