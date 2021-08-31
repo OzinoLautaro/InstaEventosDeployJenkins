@@ -50,6 +50,13 @@ export class OauthService {
     return this.http.get('https://discord.com/api/v8/users/@me/guilds', {headers});
   }
 
+  /* getGuildUsers(guildId: any): Observable<any> {
+    const headers = {
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    }
+    return this.http.get(`https://discord.com/api/guilds/${guildId}/members`, {headers});
+  } */
+
   logOut(): void {
     localStorage.removeItem('token');
     const data = new HttpParams()
