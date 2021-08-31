@@ -51,7 +51,7 @@ export class CrearEventoComponent implements OnInit, AfterViewInit {
   //console.log('subir', e.target.files[0])
   const id = Math.random().toString(36).substring(2);
   const file = e.target.files[0];
-  const filePath = 'upload/imagen.png';
+  const filePath = `uploads/fotoEvento_${id}`;
   const ref  = this.storage.ref(filePath);
   const task = this.storage.upload(filePath, file);
   } 
