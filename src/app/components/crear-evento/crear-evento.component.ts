@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { EventoService } from 'src/app/services/evento.service';
 import { OauthService } from 'src/app/services/oauth.service';
 import { DISCORD_LOGIN_URL } from 'src/environments/environment';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-crear-evento',
@@ -26,7 +27,7 @@ export class CrearEventoComponent implements OnInit, AfterViewInit {
 
   submitted: boolean = false;
 
-  constructor(private _oauth: OauthService, private fb: FormBuilder, private _eventoService: EventoService, private router: Router) {
+  constructor(private _oauth: OauthService, private fb: FormBuilder, private _eventoService: EventoService, private router: Router, private storage: AngularFireStorage) {
     this.isLoggedIn = localStorage.getItem('token') ? true : false;
     this.crearEvento = this.fb.group({
       nombre: ['', Validators.required],
@@ -53,6 +54,15 @@ export class CrearEventoComponent implements OnInit, AfterViewInit {
       })
     }
   }
+
+  onUpload(e:any){
+  //console.log('subir', e.target.files[0])
+  const id = Math.random().toString(36).substring(2);
+  const file = e.target.files[0];
+  const filePath = `uploads/fotoEvento_${id}`;
+  const ref  = this.storage.ref(filePath);
+  const task = this.storage.upload(filePath, file);
+  } 
 
   ngAfterViewInit(): void {
     if (this.isLoggedIn) this.mostrarElegirServer();
