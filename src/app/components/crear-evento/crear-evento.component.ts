@@ -41,11 +41,15 @@ export class CrearEventoComponent implements OnInit, AfterViewInit {
       this._oauth.getGuilds().subscribe(data => {
         for (let guild of data) {
           if ((guild.permissions & 0x0000000020) == 0x0000000020) {
-            let urlImagen = guild.icon ? `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png` : 'https://discordapp.com/assets/322c936a8c8be1b803cd94861bdfa868.png';
-            this.misServers.push({
-              ...guild,
-              userIcon: urlImagen
-            });
+            for(let guild of data){
+              if(guild.members.getUser[this].id == 829037977640501259){
+                let urlImagen = guild.icon ? `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png` : 'https://discordapp.com/assets/322c936a8c8be1b803cd94861bdfa868.png';
+                this.misServers.push({
+                  ...guild,
+                  userIcon: urlImagen
+                });
+              }
+            }
           }
         }
       })
