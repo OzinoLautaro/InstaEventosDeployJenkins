@@ -45,4 +45,7 @@
                  0 -1px 0 #000;
 }
 
-
+.btn-center {
+    display: flex;
+    justify-content: center;
+}
