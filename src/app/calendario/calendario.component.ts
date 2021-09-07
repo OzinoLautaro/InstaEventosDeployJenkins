@@ -97,5 +97,11 @@ export class CalendarioComponent implements OnInit {
         console.log(error);
       })
   }
+
+  buscar(){
+    
+  }
+
 }
+
 
