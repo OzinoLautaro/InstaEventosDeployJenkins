@@ -1,3 +1,4 @@
+import { SubscripcionService } from './../../services/subscripcion/subscripcion.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OauthService } from 'src/app/services/oauth.service';
@@ -9,7 +10,7 @@ import { OauthService } from 'src/app/services/oauth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private _oauthService: OauthService) { }
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private _oauthService: OauthService, private _premium: SubscripcionService) { }
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(async params => {
@@ -19,6 +20,10 @@ export class LoginComponent implements OnInit {
       this._oauthService.getToken(params['code']).subscribe(data => {
 
         localStorage.setItem('token', data.access_token);
+
+        this._premium.getSubscripciones().subscribe(data => {
+          console.log(data);
+        });
 
         window.location.href = '/principal';
 

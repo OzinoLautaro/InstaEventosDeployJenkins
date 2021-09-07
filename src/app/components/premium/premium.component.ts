@@ -1,5 +1,6 @@
 import { MercadopagoService } from './../../services/mercadopago/mercadopago.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 declare const MercadoPago: any;
 
@@ -15,11 +16,12 @@ export class PremiumComponent implements OnInit {
     id2 = "";
     id3 = "";
 
-    constructor( private _mercadopago: MercadopagoService ) {
+    constructor( private _mercadopago: MercadopagoService, private router: Router ) {
 
     }
 
     ngOnInit(): void {
+        if (localStorage.getItem('premium')) this.router.navigate(['principal']);;
         this.getPreferences();
     }
 
@@ -34,39 +36,35 @@ export class PremiumComponent implements OnInit {
                 id: this.id1
             },
             render: {
-                  container: '.tokenizer-container-1', // Indica el nombre de la clase donde se mostrará el botón de pago
-                  label: 'Pagar', // Cambia el texto del botón de pago (opcional)
+                container: '.cho-container-1',
+                label: 'Comprar'
             }
         });
 
 
         // Boton del plan 2
 
-        const tokenizer2 = mp.checkout({
-            tokenizer: {
-                totalAmount: 200,
-                backUrl: 'http://localhost:3000/procesar-pago'
+        mp.checkout({
+            preference: {
+                id: this.id2
+            },
+            render: {
+                container: '.cho-container-2',
+                label: 'Comprar'
             }
-        });
-
-        tokenizer2.render({
-            container: '.tokenizer-container-2',
-            label: 'Comprar'
         });
 
 
         // Boton del plan 3
 
-        const tokenizer3 = mp.checkout({
-            tokenizer: {
-                totalAmount: 750,
-                backUrl: 'http://localhost:3000/procesar-pago'
+        mp.checkout({
+            preference: {
+                id: this.id3
+            },
+            render: {
+                container: '.cho-container-3',
+                label: 'Comprar'
             }
-        });
-
-        tokenizer3.render({
-            container: '.tokenizer-container-3',
-            label: 'Comprar'
         });
 
     }
@@ -74,7 +72,7 @@ export class PremiumComponent implements OnInit {
 
     getPreferences = async () => {
         for (let i = 1; i < 4; i++) {
-            await this._mercadopago.getPreferencesId(i).then(data => {
+            await this._mercadopago.createPreference(i).then(data => {
                 if (i == 1) this.id1 = data.id;
                 else if (i == 2) this.id2 = data.id;
                 else if (i == 3) this.id3 = data.id;

@@ -59,6 +59,7 @@ export class OauthService {
 
   logOut(): void {
     localStorage.removeItem('token');
+    localStorage.removeItem('premium');
     const data = new HttpParams()
       .append('client_id', this.client_id)
       .append('client_secret', this.client_secret)
