@@ -15,6 +15,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     if (localStorage.getItem('premium')) {
       document.querySelector('.premium-button');
+      // Borrar boton si es premium
     }
   }
 

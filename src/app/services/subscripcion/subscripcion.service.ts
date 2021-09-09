@@ -14,6 +14,6 @@ export class SubscripcionService {
   }
 
   getSubscripciones(): Observable<any> {
-    return this.firestore.collection('premium', ref => ref.orderBy('fecha', 'asc')).snapshotChanges();
+    return this.firestore.collection('premium').snapshotChanges();
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OauthService } from 'src/app/services/oauth.service';
+import { SubscripcionService } from 'src/app/services/subscripcion/subscripcion.service';
 import { DISCORD_LOGIN_URL } from 'src/environments/environment';
 
 @Component({
@@ -16,7 +17,7 @@ export class LoginButtonComponent implements OnInit {
 
   userName:string = "";
 
-  constructor(public _oauth: OauthService) {
+  constructor(public _oauth: OauthService, private _premium: SubscripcionService) {
   }
 
   ngOnInit(): void {
@@ -26,6 +27,8 @@ export class LoginButtonComponent implements OnInit {
         this.userName = res.username;
       })
     }
+    // Sacar la opcion del boton premium
+    
   }
 
   loginConDiscord = () => {

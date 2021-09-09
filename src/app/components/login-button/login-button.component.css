@@ -1,0 +1,9 @@
+.flex-coronita {
+    display: flex;
+    flex-direction: column;
+}
+
+.coronita {
+    width: 25px;
+    height: 25px;
+}

@@ -1,6 +1,9 @@
 <ng-container *ngIf="_oauth.isLoggedIn(); else loggedOut">
     <div class="dropdown">
-        <a class="btn btn-dark dropdown-toggle btn-flex" data-bs-toggle="dropdown"><img size="25" height="25" width="25" class="rounded-circle img-fluid profile-picture me-2" src="{{userIcon}}">{{userName}}</a>
+        <a class="btn btn-dark dropdown-toggle btn-flex" data-bs-toggle="dropdown">
+            <img height="25" width="25" class="rounded-circle img-fluid profile-picture me-2" src="{{userIcon}}">
+            {{userName}}
+        </a>
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
             <li><a routerLink="/principal" href="#" class="dropdown-item">Inicio</a></li>
             <li><a routerLink="/calendario" href="#" class="dropdown-item">Eventos</a></li>

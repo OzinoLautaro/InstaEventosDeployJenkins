@@ -29,10 +29,11 @@ export class ProcesarPagoComponent implements OnInit {
           else if (data.description == 'Plan de tres meses') duracionPlan+=3;
           else if (data.description == 'Plan de un año') duracionPlan+=12;
           else this.router.navigate(['/']);
-          const fechaInicial = new Date(data.date_approved);
-          const fechaFinal = new Date(fechaInicial);
+          let fechaInicial: any = new Date(data.date_approved);
+          let fechaFinal: any = new Date(fechaInicial);
           fechaFinal.setMonth(fechaFinal.getMonth() + duracionPlan);
-          console.log(data);
+          fechaInicial= fechaInicial.toString();
+          fechaFinal = fechaFinal.toString();
           let obj = {
             idUsuario: idUser,
             idPago: params['payment_id'],
