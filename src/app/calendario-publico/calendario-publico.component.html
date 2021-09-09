@@ -1,0 +1,44 @@
+<div class="contenedor">
+    <div class="titulo-div">
+      <h1>Eventos</h1>
+      <button class="btn btn-success" routerLink="/crear-evento">+ Crear evento</button>
+    </div>
+  
+      <!--barra de busqueda a medias-->
+      <div class="barra-de-busqueda">
+        <input type="text" placeholder="Buscar evento" required>
+        <a href="" class="btn">
+          <i class="icon-buscar"></i>
+        </a>
+      </div>
+    
+    <div class="eventos-flex">
+      <div *ngFor="let evento of eventos" class="card card-principal">
+        <img src="{{evento.url}}" class="card-img-top" alt="imagen de evento">
+        <div class="contenido">
+          <h5 class="card-title">{{ evento.nombre }}</h5>
+          <p class="card-text ">{{ evento.descripcion }}</p>
+          <p class="card-text">{{ evento.fechaArreglada }}</p>
+          <p class="card-text">{{ evento.publico }}</p>
+          <div class="botones-evento d-flex">
+            <a class="btn btn-primary btn-unirse">Unirse</a>
+          </div>
+        </div>
+  
+     
+  
+      </div>
+      <div *ngFor="let evento of eventos" class="card-celular">
+        <img src="{{evento.url}}" class="card-img" alt="imagen de evento">
+        <div class="card-contenido">
+          <h5 class="card-title ">{{ evento.nombre }}</h5>
+          <p class="card-text ">{{ evento.descripcion }}</p>
+          <p class="card-text">{{ evento.fechaArreglada }}</p>
+          <div class="botones-evento d-flex">
+            <a class="btn btn-primary btn-unirse">Unirse</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
