@@ -1,0 +1,40 @@
+<div class="crear-evento-container">
+    <div class="crear-evento-card">
+        <div class="steps-name-container">
+            <div class="step">Iniciar sesion</div>
+            <div class="step">Elegir server</div>
+            <div class="step">Crear evento</div>
+        </div>
+        <div class="step-container">
+            <div class="circle-step" id="circulo-1"></div>
+            <div class="step-line"></div>
+            <div class="circle-step" id="circulo-2" (click)="mostrarElegirServer()"></div>
+            <div class="step-line"></div>
+            <div class="circle-step" id="circulo-3"></div>
+        </div>
+        <div class="login-container">
+            <h2>Login discord</h2>
+            <p>Para crear un evento necesitas iniciar sesión con tu cuenta de Discord</p>
+            <button class="login-button" (click)="loginConDiscord()">Iniciar sesión con Discord</button>
+        </div>
+        <div class="servers-container">
+            <div class="server-div" *ngFor="let server of misServers" style="background-image: url({{server.userIcon}});" (click)="elegirServer(server.id)">{{server.name}}</div>
+        </div>
+        <form class="evento-formulario" [formGroup]="crearEvento" (ngSubmit)="agregarEvento()">
+            <span class="mb-2 text-danger" *ngIf="submitted && crearEvento.invalid">TODOS LOS CAMPOS SON OBLIGATORIOS</span>
+            <label for="nombre-evento">Nombre:</label>
+            <input type="text" id="nombre-evento" placeholder="Nombre del evento" formControlName="nombre" required>
+            <label for="fecha-evento">Fecha:</label>
+            <input type="datetime-local" id="fecha-evento" formControlName="fecha" required>
+            <label for="descripcion-evento">Descripción:</label>
+            <textarea id="descripcion-evento" placeholder="Descripción del evento" formControlName="descripcion" required></textarea>
+            <label for="nombre-evento">Seleccionar imagen:</label>
+            <input type="file" accept=".png, .jpg" placeholder="Insertar imagen" formControlName="imagen" (change)="onUpload($event)" required>
+            <div class="submit-btn-container">
+                
+                <button class="submit-btn">Crear evento</button>
+            </div>
+        </form>
+    </div>
+</div>
+
