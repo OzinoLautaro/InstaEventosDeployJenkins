@@ -25,7 +25,8 @@
         <h5 class="card-title">{{ evento.nombre }}</h5>
         <p class="card-text ">{{ evento.descripcion }}</p>
         <p class="card-text">{{ evento.fechaArreglada }}</p>
-        <p class="card-text">{{ evento.publico }}</p>
+        <p class="card-text" *ngIf=" evento.publico; else elseBlock ">Publico</p>
+        <ng-template  #elseBlock><p class="card-text">Privado</p></ng-template>
         <div class="botones-evento d-flex">
           <a class="btn btn-primary btn-unirse">Unirse</a>
         </div>
