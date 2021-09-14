@@ -5,13 +5,18 @@
     <button class="btn btn-success" routerLink="/crear-evento">+ Crear evento</button>
   </div>
 
-    <!--barra de busqueda a medias-->
-    <div class="barra-de-busqueda">
-      <input type="text" placeholder="Buscar evento" required>
-      <a href="" class="btn">
-        <i class="icon-buscar"></i>
-      </a>
+    <!--barra de busqueda-->
+    <div class="wrap">
+    
+   
+    <div class="barra">
+      <input type="text" class="lala" placeholder="Buscar evento..."  #myinput [(ngModel)]="nombre" (input)="buscar()"required>
+      <button type="submit" class="searchButton">
+        <i class="fa fa-search"></i>
+     </button>
+   
     </div>
+  </div>
   
   <div class="eventos-flex">
     <div *ngFor="let evento of eventos" class="card card-principal">

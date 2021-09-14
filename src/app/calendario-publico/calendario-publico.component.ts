@@ -9,6 +9,7 @@ import { EventoService } from 'src/app/services/evento.service';
   styleUrls: ['./calendario-publico.component.css']
 })
 export class CalendarioPublicoComponent implements OnInit {
+  [x: string]: any;
   eventos: any[] = [];
 
   editarEvento: FormGroup;
@@ -99,11 +100,16 @@ export class CalendarioPublicoComponent implements OnInit {
         console.log(error);
       })
   }
-
   buscar(){
-    
-  }
+    if(this.nombre !=""){
+
+    }else if (this.nombre== ""){
+      this.ngOnInit();
+    }
+    this.eventos = this.eventos.filter(res=>{
+      return res.nombre.toLocaleLowerCase().match(this.nombre.toLocaleLowerCase());
+    });
 
 }
-
+}
 
