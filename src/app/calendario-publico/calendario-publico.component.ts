@@ -29,15 +29,13 @@ export class CalendarioPublicoComponent implements OnInit {
   }
 
   getEventos(){
-    this._eventoService.getEventos().subscribe(data => {
-      this.eventos = [];
-      data.forEach((element:any, index:any) => {
-        if(element.data()["publico"] == false){
-          console.log(index);
-          //this.eventos.splice(index,1)
-        };
+    this._eventoService.getEventosPublicos().subscribe(data => {
+      this.eventos = []; 
+      console.log(this.eventos)    
+      data.forEach((element:any) => {
         let urlImagen = element.payload.doc.data().imgUrl ?? 'https://discordapp.com/assets/322c936a8c8be1b803cd94861bdfa868.png';
-        let fecha: Date = new Date(element.payload.doc.data().fecha);
+        let fecha: Date = element.payload.doc.data().fecha.toDate();
+        console.log(element.payload.doc.data().fecha);
         let date: string = fecha.getDate() < 10 ? '0' + fecha.getDate() : fecha.getDate().toString();
         let mes: string = fecha.getMonth() < 10 ? '0' + fecha.getMonth() : fecha.getMonth().toString();
         let hora: string = fecha.getHours() < 10 ? '0' + fecha.getHours() : fecha.getHours().toString();

@@ -128,7 +128,7 @@ export class CrearEventoComponent implements OnInit, AfterViewInit {
     this.submitted = true;
     if(this.crearEvento.invalid) return;
 
-    const fechaEvento: string= new Date(this.crearEvento.value.fecha).toString();
+    const fechaEvento: string= this.crearEvento.value.fecha;
 
     const obj = {
       idCreador: this.userId,
