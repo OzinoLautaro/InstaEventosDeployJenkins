@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { OauthService } from 'src/app/services/oauth.service';
 import { SubscripcionService } from 'src/app/services/subscripcion/subscripcion.service';
 import { DISCORD_LOGIN_URL } from 'src/environments/environment';
@@ -6,10 +6,9 @@ import { DISCORD_LOGIN_URL } from 'src/environments/environment';
 @Component({
   selector: 'app-login-button',
   templateUrl: './login-button.component.html',
-  styles: [
-  ]
+  styleUrls: ['./login-button.component.css']
 })
-export class LoginButtonComponent implements OnInit {
+export class LoginButtonComponent implements OnInit, AfterViewInit {
 
   url = DISCORD_LOGIN_URL;
 
@@ -29,6 +28,19 @@ export class LoginButtonComponent implements OnInit {
     }
     // Sacar la opcion del boton premium
     
+  }
+
+  ngAfterViewInit(): void {
+    if (localStorage.getItem('premium')) {
+      const premium_btn: any = document.querySelector('li.premium-button');
+      const btn_username: any = document.querySelector('.btn-color');
+      const coronita: any = document.querySelector('.coronita');
+      const avatar: any = document.querySelector('.foto-perfil');
+      coronita.style.display = "block";
+      avatar.style.bottom = "4px";
+      premium_btn.style.display = "none";
+      btn_username.style.color = "rgb(255, 195, 79)";
+    }
   }
 
   loginConDiscord = () => {
