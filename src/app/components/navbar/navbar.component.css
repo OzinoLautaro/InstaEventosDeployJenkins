@@ -1,8 +1,10 @@
 ._navbar {
     display: flex;
-    background-color: #212529;
+    background-color: black;
     padding: 7px 15px;
     align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: unset;
 }
 
 .icon-navbar {
@@ -16,11 +18,17 @@
 }
 
 .navbar-link-button:hover {
-    color: #7885B1 !important;
+    color:rgb(248, 225, 14) !important;
+    font-size:20px;
+}
+.navbar-link-button{
+    font-size:18px;
+    font-weight: bolder;
 }
 
 @media screen and (max-width: 800px) {
     .navbar-link-button {
         display: none;
+        background-color: green;
     }
 }

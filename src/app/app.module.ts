@@ -20,6 +20,8 @@ import { MisEventosComponent } from './components/mis-eventos/mis-eventos.compon
 import { NgxMercadopagoModule } from 'ngx-mercadopago';
 import { PremiumComponent } from './components/premium/premium.component';
 import { ProcesarPagoComponent } from './components/procesar-pago/procesar-pago.component';
+import { CalendarioPublicoComponent } from './calendario-publico/calendario-publico.component';
+
 
 @NgModule({
   declarations: [
@@ -32,8 +34,13 @@ import { ProcesarPagoComponent } from './components/procesar-pago/procesar-pago.
     NavbarComponent,
     CrearEventoComponent,
     MisEventosComponent,
+
     PremiumComponent,
     ProcesarPagoComponent
+
+    PayButtonComponent,
+    CalendarioPublicoComponent
+
   ],
   imports: [
     BrowserModule,

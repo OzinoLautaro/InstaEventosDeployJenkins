@@ -28,7 +28,10 @@
             <input type="datetime-local" id="fecha-evento" formControlName="fecha" required>
             <label for="descripcion-evento">Descripción:</label>
             <textarea id="descripcion-evento" placeholder="Descripción del evento" formControlName="descripcion" required></textarea>
+            <label for="nombre-evento">Seleccionar imagen:</label>
+            <input type="file" accept=".png, .jpg" placeholder="Insertar imagen" formControlName="imagen" (change)="onUpload($event)" required>
             <div class="submit-btn-container">
+                
                 <button class="submit-btn">Crear evento</button>
             </div>
         </form>
