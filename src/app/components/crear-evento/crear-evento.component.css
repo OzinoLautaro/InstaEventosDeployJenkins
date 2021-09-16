@@ -94,12 +94,23 @@
     background-size: contain;
     margin: 5px;
     height: 92px;
-    display: flex;
+    display: block;
     border: 1px solid #212121;
     align-items: flex-end;
     justify-content: center;
     cursor: pointer;
     color: #ddd;
+    margin-bottom: auto;
+}
+
+.server-div p{
+    background-color:rgba(0, 0, 0, 0.685);
+    color: #775fff;
+    text-align: center;
+    justify-content:center;
+    font-weight: bold;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: rgb(140, 98, 255);  
 }
 
 .evento-formulario {

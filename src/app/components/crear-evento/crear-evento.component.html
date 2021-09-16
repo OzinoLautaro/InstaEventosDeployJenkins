@@ -18,7 +18,9 @@
             <button class="login-button" (click)="loginConDiscord()">Iniciar sesión con Discord</button>
         </div>
         <div class="servers-container">
-            <div class="server-div" *ngFor="let server of misServers" style="background-image: url({{server.userIcon}});" (click)="elegirServer(server.id)">{{server.name}}</div>
+            <div class="server-div" *ngFor="let server of misServers" style="background-image: url({{server.userIcon}});" (click)="elegirServer(server.id)">
+                <p>{{server.name}}</p>
+            </div>
         </div>
         <form class="evento-formulario" [formGroup]="crearEvento" (ngSubmit)="agregarEvento()">
             <span class="mb-2 text-danger" *ngIf="submitted && crearEvento.invalid">TODOS LOS CAMPOS SON OBLIGATORIOS</span>
