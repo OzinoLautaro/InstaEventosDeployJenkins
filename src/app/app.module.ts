@@ -23,6 +23,7 @@ import { ProcesarPagoComponent } from './components/procesar-pago/procesar-pago.
 import { CalendarioPublicoComponent } from './calendario-publico/calendario-publico.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,11 +35,8 @@ import { CalendarioPublicoComponent } from './calendario-publico/calendario-publ
     NavbarComponent,
     CrearEventoComponent,
     MisEventosComponent,
-
     PremiumComponent,
-    ProcesarPagoComponent
-
-    PayButtonComponent,
+    ProcesarPagoComponent,
     CalendarioPublicoComponent
 
   ],
