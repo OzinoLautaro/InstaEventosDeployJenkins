@@ -10,8 +10,24 @@ body{
     width: 45%;
 }
 
-.left-container p {
+#BGazo{
+    background: transparent;
+    color: white;
+    border-radius: 3%;
+    font-weight: unset;
+    font-family: cursive;
+}
+
+#BGazo p{
+    margin-left: 5px;
     font-size: 1.7rem;
+}
+#BGazo a{
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+#BGazo h1{
+    margin-left: 5px;
 }
 
 .right-container {
