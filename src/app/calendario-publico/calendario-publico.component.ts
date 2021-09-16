@@ -5,10 +5,10 @@ import { EventoService } from 'src/app/services/evento.service';
 
 @Component({
   selector: 'app-calendario',
-  templateUrl: './calendario.component.html',
-  styleUrls: ['./calendario.component.css']
+  templateUrl: './calendario-publico.component.html',
+  styleUrls: ['./calendario-publico.component.css']
 })
-export class CalendarioComponent implements OnInit {
+export class CalendarioPublicoComponent implements OnInit {
   [x: string]: any;
   eventos: any[] = [];
 
@@ -30,11 +30,13 @@ export class CalendarioComponent implements OnInit {
   }
 
   getEventos(){
-    this._eventoService.getEventos().subscribe(data => {
-      this.eventos = [];
-      data.forEach((element: any) => {
+    this._eventoService.getEventosPublicos().subscribe(data => {
+      this.eventos = []; 
+      console.log(this.eventos)    
+      data.forEach((element:any) => {
         let urlImagen = element.payload.doc.data().imgUrl ?? 'https://discordapp.com/assets/322c936a8c8be1b803cd94861bdfa868.png';
         let fecha: Date = element.payload.doc.data().fecha.toDate();
+        console.log(element.payload.doc.data().fecha);
         let date: string = fecha.getDate() < 10 ? '0' + fecha.getDate() : fecha.getDate().toString();
         let mes: string = fecha.getMonth() < 10 ? '0' + fecha.getMonth() : fecha.getMonth().toString();
         let hora: string = fecha.getHours() < 10 ? '0' + fecha.getHours() : fecha.getHours().toString();
@@ -98,7 +100,6 @@ export class CalendarioComponent implements OnInit {
         console.log(error);
       })
   }
-
   buscar(){
     if(this.nombre !=""){
 
@@ -108,9 +109,7 @@ export class CalendarioComponent implements OnInit {
     this.eventos = this.eventos.filter(res=>{
       return res.nombre.toLocaleLowerCase().match(this.nombre.toLocaleLowerCase());
     });
-    
-  }
 
 }
-
+}
 

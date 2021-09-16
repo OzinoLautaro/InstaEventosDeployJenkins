@@ -10,6 +10,7 @@
 .icon-navbar {
     height: 50px;
     width: 50px;
+    cursor: pointer;
 }
 
 .login-btn {

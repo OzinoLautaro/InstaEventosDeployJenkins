@@ -28,6 +28,7 @@ export class MisEventosComponent implements OnInit {
   ngOnInit(): void {
     this._oauth.getUser().subscribe(data => {
       this._eventoService.getEventos().subscribe(res => {
+        this.misEventos = [];
         for (let evento of res) {
           if (evento.payload.doc.data().idCreador == data.id) {
             this.misEventos.push({
@@ -59,7 +60,6 @@ export class MisEventosComponent implements OnInit {
     console.log(this.eventoElegido)
     this._eventoService.eliminarEvento(this.eventoElegido).then(() => {
       console.log("Evento borrado correctamente");
-      window.location.href = '/mis-eventos';
     }).catch(error => {
       console.log(error);
     })
@@ -102,7 +102,6 @@ export class MisEventosComponent implements OnInit {
     else return;
     this._eventoService.actualizarEvento(this.eventoElegido, obj).then(() => {
       console.log("Evento editado correctamente");
-      window.location.href = '/mis-eventos';
     }).catch(error => {
       console.log(error);
     })

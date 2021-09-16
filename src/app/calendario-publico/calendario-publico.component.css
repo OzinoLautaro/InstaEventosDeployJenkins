@@ -1,0 +1,158 @@
+
+h1{
+    display: inline-block;
+    font-family: 'Courier New', Courier, monospace;
+    margin-right: 30px;
+    margin-top: 10px;
+ }
+ 
+ h5{
+    text-align: center;
+    color: black;
+ }
+ 
+ p{
+    text-align: center;
+    color: black;
+    font-size: small;
+ }
+ 
+ .botones-evento {
+    justify-content: center;
+ }
+ 
+ .contenedor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-size: cover;
+    padding-bottom: 20px;
+ }
+ 
+ .eventos-flex {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+ }
+ 
+ .card {
+    width: 17rem;
+    border: 1px solid #4449;
+    height: 400px;
+ }
+ 
+ .card-img-top {
+    border-bottom: 1px solid #5559;
+    height: 215px;
+ }
+ 
+ .titulo-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+ }
+ 
+ .eventos-flex .card-celular {
+    display: none;
+ }
+ 
+ .contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 185px;
+ }
+ 
+ @media screen and (max-width: 1180px) {
+    .eventos-flex {
+       display: grid;
+       grid-template-columns: repeat(3, 1fr);
+    }
+ 
+    .eventos-flex .card-celular {
+       display: none;
+    }
+ }
+ 
+ @media screen and (max-width: 910px) {
+    .eventos-flex {
+       display: grid;
+       grid-template-columns: repeat(2, 1fr);
+       gap: 25px;
+    }
+ 
+    .eventos-flex .card-celular {
+       display: none;
+    }
+ }
+ 
+ @media screen and (max-width: 620px) {
+    .eventos-flex {
+       display: grid;
+       justify-content: center;
+       grid-template-columns: repeat(1, 340px);
+       margin-bottom: 5px;
+       gap: 5px;
+    }
+    .eventos-flex .card-principal {
+       display: none;
+    }
+    .eventos-flex .card-celular {
+       display: flex;
+       background-color: #fff;
+       border: 1px solid #5555;
+       border-radius: 7px;
+    }
+    .card-img {
+       min-width: 175px;
+       max-width: 175px;
+       height: 175px;
+    }
+    .card-contenido {
+       display: flex;
+       width: 100%;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+    }
+ }
+ .barra{
+   width: 100%;
+   position: relative;
+   display: flex;
+}
+.lala {
+   width: 100%;
+   border: 3px solid #00B4CC;
+   border-right: none;
+   padding: 5px;
+   height: 30px;
+   border-radius: 5px 0 0 5px;
+   outline: none;
+   color: #9DBFAF;
+}
+.searchButton {
+   width: 30px;
+   height: 30px;
+   border: 1px solid #00B4CC;
+   background: #00B4CC;
+   text-align: center;
+   color: #fff;
+   border-radius: 0 5px 5px 0;
+   cursor: pointer;
+   font-size: 20px;
+ }
+ 
+.lala:focus{
+   
+      color: black;
+}
+.wrap{
+   width: 30%;
+
+  
+ }
+

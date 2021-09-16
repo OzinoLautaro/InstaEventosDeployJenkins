@@ -1,11 +1,18 @@
 <ng-container *ngIf="_oauth.isLoggedIn(); else loggedOut">
     <div class="dropdown">
-        <a class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown"><img size="25" height="25" width="25" class="rounded-circle img-fluid profile-picture me-2" src="{{userIcon}}">{{userName}}</a>
+        <a class="btn btn-dark dropdown-toggle btn-color btn-flex" data-bs-toggle="dropdown">
+            <div class="coronita-flex">
+                <img class="coronita" height="11" width="20" src="https://i.pinimg.com/originals/83/b1/f3/83b1f39083f8dc4a4e31c1b4b8e8706e.png" alt="coronita">
+                <img height="25" width="25" class="foto-perfil rounded-circle img-fluid profile-picture me-2" src="{{userIcon}}">    
+            </div>
+            <span class="btn-username">{{userName}}</span>
+        </a>
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
             <li><a routerLink="/principal" href="#" class="dropdown-item">Inicio</a></li>
             <li><a routerLink="/calendario" href="#" class="dropdown-item">Eventos</a></li>
             <li><a routerLink="/mis-eventos" href="#" class="dropdown-item">Mis eventos</a></li>
             <li><a routerLink="/comandos" href="#" class="dropdown-item">Comandos</a></li>
+            <li class="premium-button"><a routerLink="/premium" href="#" class="dropdown-item">Premium</a></li>
             <li><a (click)="_oauth.logOut()" href="#" class="dropdown-item text-danger">Cerrar sesion</a></li>
         </ul>
     </div>

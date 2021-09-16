@@ -13,6 +13,10 @@ export class EventoService {
     return this.firestore.collection('eventos', ref => ref.orderBy('fecha', 'asc')).snapshotChanges();
   }
 
+  getEventosPublicos(): Observable<any> {
+    return this.firestore.collection('eventos', ref => ref.where('publico', "==", true)).snapshotChanges();
+  }
+
   agregarEvento(evento: any): Promise<any> {
     return this.firestore.collection('eventos').add(evento);
   }
@@ -24,4 +28,6 @@ export class EventoService {
   actualizarEvento(id: any, data:any): Promise<any> {
     return this.firestore.collection('eventos').doc(id).update(data);
   }
+
+
 }
