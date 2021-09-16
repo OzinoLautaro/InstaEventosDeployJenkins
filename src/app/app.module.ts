@@ -19,6 +19,7 @@ import { CrearEventoComponent } from './components/crear-evento/crear-evento.com
 import { MisEventosComponent } from './components/mis-eventos/mis-eventos.component';
 import { PayButtonComponent } from './components/pay-button/pay-button.component';
 import { NgxMercadopagoModule } from 'ngx-mercadopago';
+import { CalendarioPublicoComponent } from './calendario-publico/calendario-publico.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NgxMercadopagoModule } from 'ngx-mercadopago';
     NavbarComponent,
     CrearEventoComponent,
     MisEventosComponent,
-    PayButtonComponent
+    PayButtonComponent,
+    CalendarioPublicoComponent
   ],
   imports: [
     BrowserModule,
