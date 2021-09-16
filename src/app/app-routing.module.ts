@@ -1,3 +1,5 @@
+import { ProcesarPagoComponent } from './components/procesar-pago/procesar-pago.component';
+import { PremiumComponent } from './components/premium/premium.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuardService as AuthGuard } from './auth/auth-guard.service';
@@ -17,9 +19,11 @@ const routes: Routes = [
   {path:'crear-evento', component:CrearEventoComponent},
   {path: 'login', component: LoginComponent},
   {path: 'mis-eventos', component: MisEventosComponent, canActivate: [AuthGuard]},
+  {path: 'premium', component: PremiumComponent, canActivate: [AuthGuard]},
+  {path: 'procesar-pago', component: ProcesarPagoComponent, canActivate: [AuthGuard]},
   {path:'', redirectTo: '/principal',pathMatch:'full'},
   {path: '**', redirectTo: '/principal', pathMatch: 'full'}
- 
+  
 ];
 
 @NgModule({

@@ -17,9 +17,11 @@ import { CalendarioComponent } from './calendario/calendario.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CrearEventoComponent } from './components/crear-evento/crear-evento.component';
 import { MisEventosComponent } from './components/mis-eventos/mis-eventos.component';
-import { PayButtonComponent } from './components/pay-button/pay-button.component';
 import { NgxMercadopagoModule } from 'ngx-mercadopago';
+import { PremiumComponent } from './components/premium/premium.component';
+import { ProcesarPagoComponent } from './components/procesar-pago/procesar-pago.component';
 import { CalendarioPublicoComponent } from './calendario-publico/calendario-publico.component';
+
 
 @NgModule({
   declarations: [
@@ -32,8 +34,13 @@ import { CalendarioPublicoComponent } from './calendario-publico/calendario-publ
     NavbarComponent,
     CrearEventoComponent,
     MisEventosComponent,
+
+    PremiumComponent,
+    ProcesarPagoComponent
+
     PayButtonComponent,
     CalendarioPublicoComponent
+
   ],
   imports: [
     BrowserModule,
@@ -44,10 +51,6 @@ import { CalendarioPublicoComponent } from './calendario-publico/calendario-publ
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxMercadopagoModule.forRoot({
-      publishKey: 'Your Publish Key',
-      pathSDK: 'https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js'
-    }),
     AuthModule.forRoot({
       ...env.auth,
     })
