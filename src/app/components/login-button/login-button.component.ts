@@ -28,7 +28,6 @@ export class LoginButtonComponent implements OnInit, AfterViewInit {
         this.userName = res.username;
       })
     }
-    // Sacar la opcion del boton premium
     
   }
 
