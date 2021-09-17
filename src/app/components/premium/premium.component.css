@@ -12,7 +12,7 @@
 .card-payment {
     display: flex;
     flex-direction: column;
-    background: #fff;
+    background: lightskyblue;
     border: 2px solid #212121;
     border-bottom: 4px solid #212121;
     border-radius: 8px;
