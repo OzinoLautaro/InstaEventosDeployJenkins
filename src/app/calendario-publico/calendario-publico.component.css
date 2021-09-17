@@ -121,6 +121,7 @@ h1{
  }
  .barra{
    width: 100%;
+   margin-top: 1%;
    position: relative;
    display: flex;
 }

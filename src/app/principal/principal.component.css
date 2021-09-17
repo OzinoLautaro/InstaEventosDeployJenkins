@@ -12,7 +12,8 @@ body{
 
 #BGazo{
     background: transparent;
-    color: white;
+    background-color: rgba(0, 0, 0, 0.575);
+    color: rgb(255, 255, 255);
     border-radius: 3%;
     font-weight: unset;
     font-family: cursive;
