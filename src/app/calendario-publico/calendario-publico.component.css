@@ -4,6 +4,7 @@ h1{
     font-family: 'Courier New', Courier, monospace;
     margin-right: 30px;
     margin-top: 10px;
+    margin-left: 10px;
  }
  
  h5{
@@ -48,10 +49,17 @@ h1{
  }
  
  .titulo-div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-top: 20px;
+   background-color: rgba(0, 0, 0, 0.692);
+   color: white;
+   border-radius: 10px;
+ }
+ 
+ .titulo-div button{
+    margin-right: 10px;
  }
  
  .eventos-flex .card-celular {
@@ -121,6 +129,7 @@ h1{
  }
  .barra{
    width: 100%;
+   margin-top: 1%;
    position: relative;
    display: flex;
 }

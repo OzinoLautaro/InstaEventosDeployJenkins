@@ -21,7 +21,7 @@ export class PremiumComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        if (localStorage.getItem('premium')) this.router.navigate(['principal']);;
+        //if (localStorage.getItem('premium')) this.router.navigate(['principal']);;
         this.getPreferences();
     }
 
