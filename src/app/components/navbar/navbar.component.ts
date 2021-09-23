@@ -1,3 +1,4 @@
+import { SubscripcionService } from 'src/app/services/subscripcion/subscripcion.service';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 @Component({
@@ -7,16 +8,18 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit, AfterViewInit {
 
-  constructor() { }
+  constructor(private _premium: SubscripcionService) { }
 
   ngOnInit(): void {
   }
 
   ngAfterViewInit(): void {
-    if (localStorage.getItem('premium')) {
-      const premium_btn: any = document.querySelector('.premium-button');
-      premium_btn.style.display = "none";
-    }
+    this._premium.isPremium().then(res => {
+      if (!res) {
+        const premium_btn: any = document.querySelector('.premium-button');
+        premium_btn.style.display = "block";
+      }
+    })
   }
 
 }

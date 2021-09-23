@@ -32,16 +32,22 @@ export class LoginButtonComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    if (localStorage.getItem('premium')) {
-      const premium_btn: any = document.querySelector('li.premium-button');
-      const btn_username: any = document.querySelector('.btn-color');
-      const coronita: any = document.querySelector('.coronita');
-      const avatar: any = document.querySelector('.foto-perfil');
-      coronita.style.display = "block";
-      avatar.style.bottom = "4px";
-      premium_btn.style.display = "none";
-      btn_username.style.color = "rgb(255, 195, 79)";
-    }
+
+    this._premium.isPremium().then(res => {
+      if (res) {
+        const btn_username: any = document.querySelector('.btn-color');
+        const coronita: any = document.querySelector('.coronita');
+        const avatar: any = document.querySelector('.foto-perfil');
+        coronita.style.display = "block";
+        avatar.style.bottom = "4px";
+        btn_username.style.color = "rgb(255, 195, 79)";
+      }
+      else {
+        const premium_btn: any = document.querySelector('li.premium-button');
+        premium_btn.style.display = "block";
+      }
+    })
+
   }
 
   loginConDiscord = () => {

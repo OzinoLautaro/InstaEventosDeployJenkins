@@ -36,7 +36,7 @@ export class SubscripcionService {
       })
     })
     
-    premiumPromise = new Promise(async (resolve, reject) => {
+    premiumPromise = new Promise(async (resolve) => {
 
       let subs: any = [];
 

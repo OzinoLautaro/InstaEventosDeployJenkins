@@ -18,8 +18,6 @@ export class ProcesarPagoComponent implements OnInit {
 
       params['status'] == 'approved' ? console.log('Aprobado') : window.location.href = '/principal';
 
-      if (localStorage.getItem('premium')) window.location.href = '/principal';
-
       this._oauth.getUser().subscribe(data => {
         let idUser = data.id;
 
@@ -40,7 +38,6 @@ export class ProcesarPagoComponent implements OnInit {
             fechaInicial,
             fechaFinal
           }
-          localStorage.setItem('premium', 'true');
           this._premium.agregarSubscripcion(obj)
             .then(data => window.location.href = '/principal')
         });

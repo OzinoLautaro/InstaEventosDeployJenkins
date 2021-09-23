@@ -26,6 +26,10 @@
     font-weight: bolder;
 }
 
+.premium-button {
+    display: none;
+}
+
 @media screen and (max-width: 800px) {
     .navbar-link-button {
         display: none;

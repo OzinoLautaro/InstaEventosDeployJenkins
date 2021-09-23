@@ -1,6 +1,7 @@
 .btn-username {
     font-weight: 400;
     padding-top: 2px;
+    padding-left: 5px;
 }
 
 .coronita-flex {
@@ -23,4 +24,8 @@
 
 .foto-perfil {
     position: relative;
+}
+
+li.premium-button {
+    display: none;
 }
