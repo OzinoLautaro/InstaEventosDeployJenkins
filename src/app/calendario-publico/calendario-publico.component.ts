@@ -31,12 +31,10 @@ export class CalendarioPublicoComponent implements OnInit {
 
   getEventos(){
     this._eventoService.getEventosPublicos().subscribe(data => {
-      this.eventos = []; 
-      console.log(this.eventos)    
+      this.eventos = [];
       data.forEach((element:any) => {
         let urlImagen = element.payload.doc.data().imgUrl ?? 'https://discordapp.com/assets/322c936a8c8be1b803cd94861bdfa868.png';
         let fecha: Date = element.payload.doc.data().fecha.toDate();
-        console.log(element.payload.doc.data().fecha);
         let date: string = fecha.getDate() < 10 ? '0' + fecha.getDate() : fecha.getDate().toString();
         let mes: string = fecha.getMonth() < 10 ? '0' + fecha.getMonth() : fecha.getMonth().toString();
         let hora: string = fecha.getHours() < 10 ? '0' + fecha.getHours() : fecha.getHours().toString();
@@ -53,53 +51,6 @@ export class CalendarioPublicoComponent implements OnInit {
     });
   }
 
-  mostrarEditar = (opcion: string, eventoId: any) => {
-    const editarContainer: any = document.getElementById(opcion);
-    editarContainer.style.display = 'flex';
-    this.eventoElegidoEditar = eventoId;
-  }
-
-  modificarEvento = (opcion: string) => {
-    let obj = {};
-    
-    if (opcion == 'nombre') {
-      obj = {
-        nombre: this.editarEvento.value.nombre
-      };
-    }
-    else if (opcion == 'fecha') {
-      const fechaEvento: string= new Date(this.editarEvento.value.fecha).toString();
-      obj = {
-        fecha: fechaEvento
-      };
-    }
-    else {
-      obj = {
-        descripcion: this.editarEvento.value.descripcion
-      };
-    }
-
-    this._eventoService.actualizarEvento(this.eventoElegidoEditar, obj)
-      .then(() => {
-        console.log("Evento editado");
-        alert("Evento editado");
-        this.router.navigate(['/principal'])
-      })
-      .catch(error => {
-        console.log(error);
-      })
-  }
-
-  eliminarEvento = (eventoId: any) => {
-    this._eventoService.eliminarEvento(eventoId)
-      .then(() => {
-        console.log("Evento eliminado");
-        alert("Evento eliminado");
-      })
-      .catch(error => {
-        console.log(error);
-      })
-  }
   buscar(){
     if(this.nombre !=""){
 
@@ -109,7 +60,6 @@ export class CalendarioPublicoComponent implements OnInit {
     this.eventos = this.eventos.filter(res=>{
       return res.nombre.toLocaleLowerCase().match(this.nombre.toLocaleLowerCase());
     });
-
-}
+  }
 }
 

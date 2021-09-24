@@ -56,8 +56,6 @@ export class MisEventosComponent implements OnInit {
   borrarEvento = () => {
     const cartelBorrar: any = document.querySelector(".borrar-cartel-fondo");
     cartelBorrar.style.display = "none";
-    
-    console.log(this.eventoElegido)
     this._eventoService.eliminarEvento(this.eventoElegido).then(() => {
       console.log("Evento borrado correctamente");
     }).catch(error => {

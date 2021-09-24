@@ -69,9 +69,14 @@ export class CrearEventoComponent implements OnInit, AfterViewInit {
     if (this.isLoggedIn) this.mostrarElegirServer();
 
     this._premium.isPremium().then(res => {
-      if (res) {
+      if (!res) {
         this._eventoService.getEventos().subscribe(res => {
-          console.log(this.userId)
+          for (let element of res) {
+            if ( element.payload.doc.data().idCreador == this.userId ) {
+              this.mostrarCartel();
+              return;
+            }
+          }
         });
       }
     })
@@ -144,12 +149,29 @@ export class CrearEventoComponent implements OnInit, AfterViewInit {
       
     }
     
+    this.mostrarCartelEventoCreado();
+    
     this._eventoService.agregarEvento(obj).then(() => {
       console.log("Evento agregado");
-      alert("Evento agregado");
-      this.router.navigate(['/principal']);
     }).catch(error => {
       console.log(error);
     })
   }
+
+
+  mostrarCartel = () => {
+    const cartel: any = document.querySelector(".cartel-fondo");
+    cartel.style.display = "flex";
+  }
+
+  mostrarCartelEventoCreado = () => {
+    const cartel: any = document.querySelector(".cartel-fondo");
+    cartel.style.display = "none";
+    const cartelEventoCreado: any = document.querySelector(".cartel-fondo-evento-creado");
+    cartelEventoCreado.style.display = "flex";
+  }
+
 }
+
+
+

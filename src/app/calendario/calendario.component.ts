@@ -51,54 +51,6 @@ export class CalendarioComponent implements OnInit {
     });
   }
 
-  mostrarEditar = (opcion: string, eventoId: any) => {
-    const editarContainer: any = document.getElementById(opcion);
-    editarContainer.style.display = 'flex';
-    this.eventoElegidoEditar = eventoId;
-  }
-
-  modificarEvento = (opcion: string) => {
-    let obj = {};
-    
-    if (opcion == 'nombre') {
-      obj = {
-        nombre: this.editarEvento.value.nombre
-      };
-    }
-    else if (opcion == 'fecha') {
-      const fechaEvento: string= new Date(this.editarEvento.value.fecha).toString();
-      obj = {
-        fecha: fechaEvento
-      };
-    }
-    else {
-      obj = {
-        descripcion: this.editarEvento.value.descripcion
-      };
-    }
-
-    this._eventoService.actualizarEvento(this.eventoElegidoEditar, obj)
-      .then(() => {
-        console.log("Evento editado");
-        alert("Evento editado");
-        this.router.navigate(['/principal'])
-      })
-      .catch(error => {
-        console.log(error);
-      })
-  }
-
-  eliminarEvento = (eventoId: any) => {
-    this._eventoService.eliminarEvento(eventoId)
-      .then(() => {
-        console.log("Evento eliminado");
-        alert("Evento eliminado");
-      })
-      .catch(error => {
-        console.log(error);
-      })
-  }
-
   buscar(){
     if(this.nombre !=""){
 

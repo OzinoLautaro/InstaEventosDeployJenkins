@@ -105,12 +105,10 @@
 
 .server-div p{
     background-color:rgba(0, 0, 0, 0.685);
-    color: #775fff;
+    color: #eee;
     text-align: center;
     justify-content:center;
     font-weight: bold;
-    -webkit-text-stroke-width: 0.5px;
-    -webkit-text-stroke-color: rgb(140, 98, 255);  
 }
 
 .evento-formulario {
@@ -158,3 +156,33 @@
 #descripcion-evento::-webkit-scrollbar-track { background: #f1f1f1 }
 #descripcion-evento::-webkit-scrollbar-thumb { background: #888 }
 #descripcion-evento::-webkit-scrollbar-thumb:hover { background: #555 }
+
+
+.cartel-fondo {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background: #5556;
+    justify-content: center;
+    align-items: center;
+}
+
+.cartel {
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #5559;
+    width: 475px;
+}
+
+.cartel-fondo-evento-creado {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background: #5556;
+    justify-content: center;
+    align-items: center;
+}
