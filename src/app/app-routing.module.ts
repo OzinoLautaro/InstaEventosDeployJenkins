@@ -3,13 +3,13 @@ import { PremiumComponent } from './components/premium/premium.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuardService as AuthGuard } from './auth/auth-guard.service';
-import { CalendarioPublicoComponent } from './calendario-publico/calendario-publico.component';
-import { CalendarioComponent } from './calendario/calendario.component';
-import { ComandosComponent } from './comandos/comandos.component'
+import { CalendarioPublicoComponent } from './components/calendario-publico/calendario-publico.component';
+import { CalendarioComponent } from './components/calendario/calendario.component';
+import { ComandosComponent } from './components/comandos/comandos.component'
 import { CrearEventoComponent } from './components/crear-evento/crear-evento.component';
 import { LoginComponent } from './components/login/login.component';
 import { MisEventosComponent } from './components/mis-eventos/mis-eventos.component';
-import { PrincipalComponent } from './principal/principal.component';
+import { PrincipalComponent } from './components/principal/principal.component';
 
 const routes: Routes = [
   {path:'calendario', component:CalendarioComponent},

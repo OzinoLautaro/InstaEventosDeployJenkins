@@ -1,4 +1,4 @@
-import { SubscripcionService } from './../../services/subscripcion/subscripcion.service';
+import { SuscripcionService } from './../../services/suscripcion/suscripcion.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OauthService } from 'src/app/services/oauth.service';
@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   userId: any = "";
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private _oauthService: OauthService, private _premium: SubscripcionService) { }
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private _oauthService: OauthService, private _premium: SuscripcionService) { }
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(async params => {

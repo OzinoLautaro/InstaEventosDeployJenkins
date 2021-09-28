@@ -1,4 +1,4 @@
-import { SubscripcionService } from 'src/app/services/subscripcion/subscripcion.service';
+import { SuscripcionService } from 'src/app/services/suscripcion/suscripcion.service';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 @Component({
@@ -8,7 +8,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit, AfterViewInit {
 
-  constructor(private _premium: SubscripcionService) { }
+  constructor(private _premium: SuscripcionService) { }
 
   ngOnInit(): void {
   }

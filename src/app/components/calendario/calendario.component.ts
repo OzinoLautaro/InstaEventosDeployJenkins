@@ -52,11 +52,15 @@ export class CalendarioComponent implements OnInit {
   }
 
   buscar(){
-    if(this.nombre !=""){
 
-    }else if (this.nombre== ""){
+    if(this.nombre != "") {
+
+    }
+    
+    else if (this.nombre == "") {
       this.ngOnInit();
     }
+
     this.eventos = this.eventos.filter(res=>{
       return res.nombre.toLocaleLowerCase().match(this.nombre.toLocaleLowerCase());
     });

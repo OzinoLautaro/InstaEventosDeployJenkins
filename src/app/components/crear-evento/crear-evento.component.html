@@ -23,7 +23,8 @@
             </div>
         </div>
         <form class="evento-formulario" [formGroup]="crearEvento" (ngSubmit)="agregarEvento()">
-            <span class="mb-2 text-danger" *ngIf="submitted && crearEvento.invalid">TODOS LOS CAMPOS SON OBLIGATORIOS</span>
+            <span class="mb-2 text-danger" *ngIf="submitted && crearEvento.invalid && imgUrl !== ''">TODOS LOS CAMPOS SON OBLIGATORIOS</span>
+            <span class="mb-2 text-danger" *ngIf="submitted && imgUrl == ''">TODOS LOS CAMPOS SON OBLIGATORIOS</span>
             <label for="nombre-evento">Nombre:</label>
             <input type="text" id="nombre-evento" placeholder="Nombre del evento" formControlName="nombre" required>
             <label for="fecha-evento">Fecha:</label>
@@ -31,7 +32,7 @@
             <label for="descripcion-evento">Descripción:</label>
             <textarea id="descripcion-evento" placeholder="Descripción del evento" formControlName="descripcion" required></textarea>
             <label for="nombre-evento">Seleccionar imagen:</label>
-            <input type="file" accept=".png, .jpg" placeholder="Insertar imagen" formControlName="imagen" (change)="onUpload($event)" required>
+            <input type="file" accept=".png, .jpg, .jpeg" placeholder="Insertar imagen" formControlName="imagen" (change)="onUpload($event)" required>
             <div class="submit-btn-container">
                 
                 <button class="submit-btn">Crear evento</button>

@@ -6,7 +6,7 @@ import { OauthService } from '../oauth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class SubscripcionService {
+export class SuscripcionService {
 
   constructor(private firestore: AngularFirestore, private _oauth: OauthService) { }
 

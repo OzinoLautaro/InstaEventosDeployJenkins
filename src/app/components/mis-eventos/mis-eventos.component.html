@@ -4,7 +4,11 @@
         <div *ngIf="misEventos.length == 0" class="text-danger">No creaste ningún evento con este usuario</div>
         <div *ngIf="misEventos.length > 0" class="lista-eventos">
             <div class="evento-container" *ngFor="let evento of misEventos">
-                {{ evento.nombre }}
+                <div class="datos-container">
+                    <span><b>Nombre: </b>{{ evento.nombre }}</span>
+                    <span><b>Descripción: </b>{{ evento.descripcion }}</span>
+                    <span><b>Fecha: </b>{{ evento.fechaArreglada }}</span>
+                </div>
                 <div class="botones-evento">
                     <div class="dropdown">
                         <button class="btn btn-primary btn-mas dropdown-toggle" data-bs-toggle="dropdown">Editar</button>
@@ -56,4 +60,12 @@
             </div>
         </form>
     </div>
+</div>
+
+<div class="editado-correctamente">
+    <div class="header-editado-correctamente">Editado corectamente!</div>
+</div>
+
+<div class="borrado-correctamente">
+    <div class="header-borrado-correctamente">Borrado corectamente!</div>
 </div>

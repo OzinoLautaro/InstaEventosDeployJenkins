@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { OauthService } from 'src/app/services/oauth.service';
-import { SubscripcionService } from 'src/app/services/subscripcion/subscripcion.service';
+import { SuscripcionService } from 'src/app/services/suscripcion/suscripcion.service';
 import { DISCORD_LOGIN_URL } from 'src/environments/environment';
 
 @Component({
@@ -16,7 +16,7 @@ export class LoginButtonComponent implements OnInit, AfterViewInit {
 
   userName:string = "";
 
-  constructor(public _oauth: OauthService, private _premium: SubscripcionService) {
+  constructor(public _oauth: OauthService, private _premium: SuscripcionService) {
   }
 
   ngOnInit(): void {

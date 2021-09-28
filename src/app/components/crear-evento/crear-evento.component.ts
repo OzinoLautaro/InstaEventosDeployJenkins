@@ -1,4 +1,4 @@
-import { SubscripcionService } from 'src/app/services/subscripcion/subscripcion.service';
+import { SuscripcionService } from 'src/app/services/suscripcion/suscripcion.service';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -6,6 +6,7 @@ import { EventoService } from 'src/app/services/evento.service';
 import { OauthService } from 'src/app/services/oauth.service';
 import { DISCORD_LOGIN_URL } from 'src/environments/environment';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-crear-evento',
@@ -28,7 +29,9 @@ export class CrearEventoComponent implements OnInit, AfterViewInit {
 
   submitted: boolean = false;
 
-  constructor(private _oauth: OauthService, private fb: FormBuilder, private _eventoService: EventoService, private router: Router, private storage: AngularFireStorage, private _premium: SubscripcionService) {
+  imgUrl: string = "";
+
+  constructor(private _oauth: OauthService, private fb: FormBuilder, private _eventoService: EventoService, private router: Router, private storage: AngularFireStorage, private _premium: SuscripcionService) {
     this.isLoggedIn = localStorage.getItem('token') ? true : false;
     this.crearEvento = this.fb.group({
       nombre: ['', Validators.required],
@@ -57,13 +60,19 @@ export class CrearEventoComponent implements OnInit, AfterViewInit {
   }
 
   onUpload(e:any){
-    //console.log('subir', e.target.files[0])
     const id = Math.random().toString(36).substring(2);
     const file = e.target.files[0];
     const filePath = `uploads/fotoEvento_${id}`;
     const ref  = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, file);
-  } 
+    task.snapshotChanges().pipe(
+      finalize(() => {
+        ref.getDownloadURL().subscribe(data => {
+          this.imgUrl = data;
+        });
+      })
+    ).subscribe();
+  }
 
   ngAfterViewInit(): void {
     if (this.isLoggedIn) this.mostrarElegirServer();
@@ -132,21 +141,24 @@ export class CrearEventoComponent implements OnInit, AfterViewInit {
     pasoDos.style.color = '#3337';
     pasoTres.style.color = '#212121';
     this.serverElegido = serverId;
+    this.submitted = false;
   }
 
   agregarEvento = () => {
     this.submitted = true;
     if(this.crearEvento.invalid) return;
+    if(this.imgUrl == "") return;
 
-    const fechaEvento: string= this.crearEvento.value.fecha;
+    const fechaEvento: Date = new Date(this.crearEvento.value.fecha);
 
     const obj = {
       idCreador: this.userId,
       idServidor: this.serverElegido,
       nombre: this.crearEvento.value.nombre,
       fecha: fechaEvento,
-      descripcion: this.crearEvento.value.descripcion
-      
+      descripcion: this.crearEvento.value.descripcion,
+      imgUrl: this.imgUrl,
+      publico: true
     }
     
     this.mostrarCartelEventoCreado();
