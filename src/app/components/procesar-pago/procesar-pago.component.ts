@@ -1,4 +1,4 @@
-import { SubscripcionService } from './../../services/subscripcion/subscripcion.service';
+import { SuscripcionService } from './../../services/suscripcion/suscripcion.service';
 import { OauthService } from 'src/app/services/oauth.service';
 import { MercadopagoService } from './../../services/mercadopago/mercadopago.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,14 +11,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProcesarPagoComponent implements OnInit {
 
-  constructor( private _oauth: OauthService, private activatedRoute: ActivatedRoute, private router: Router, private _mercadopago: MercadopagoService, private _premium: SubscripcionService ) { }
+  constructor( private _oauth: OauthService, private activatedRoute: ActivatedRoute, private router: Router, private _mercadopago: MercadopagoService, private _premium: SuscripcionService ) { }
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(async params => {
 
       params['status'] == 'approved' ? console.log('Aprobado') : window.location.href = '/principal';
-
-      if (localStorage.getItem('premium')) window.location.href = '/principal';
 
       this._oauth.getUser().subscribe(data => {
         let idUser = data.id;
@@ -40,7 +38,6 @@ export class ProcesarPagoComponent implements OnInit {
             fechaInicial,
             fechaFinal
           }
-          localStorage.setItem('premium', 'true');
           this._premium.agregarSubscripcion(obj)
             .then(data => window.location.href = '/principal')
         });

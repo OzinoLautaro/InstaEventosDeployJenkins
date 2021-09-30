@@ -7,20 +7,19 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthModule } from '@auth0/auth0-angular';
 import { environment as env } from '../environments/environment';
-import { ComandosComponent } from './comandos/comandos.component';
-import { PrincipalComponent } from './principal/principal.component';
+import { ComandosComponent } from './components/comandos/comandos.component';
+import { PrincipalComponent } from './components/principal/principal.component';
 import { LoginButtonComponent } from './components/login-button/login-button.component';
 import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from "@angular/common";
-import { CalendarioComponent } from './calendario/calendario.component';
+import { CalendarioComponent } from './components/calendario/calendario.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CrearEventoComponent } from './components/crear-evento/crear-evento.component';
 import { MisEventosComponent } from './components/mis-eventos/mis-eventos.component';
-import { NgxMercadopagoModule } from 'ngx-mercadopago';
 import { PremiumComponent } from './components/premium/premium.component';
 import { ProcesarPagoComponent } from './components/procesar-pago/procesar-pago.component';
-import { CalendarioPublicoComponent } from './calendario-publico/calendario-publico.component';
+import { CalendarioPublicoComponent } from './components/calendario-publico/calendario-publico.component';
 
 
 

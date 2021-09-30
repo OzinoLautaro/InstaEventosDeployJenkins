@@ -36,6 +36,14 @@
     gap: 15px;
 }
 
+.datos-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    overflow-x: visible;
+    overflow-y: hidden;
+}
+
 .lista-eventos {
     overflow: scroll;
     overflow-x: hidden;
@@ -89,4 +97,42 @@ textarea {
     border-radius: 5px;
     border: 2px solid #21212150;
     padding: 7px 12px;
+}
+
+.editado-correctamente {
+    display: none;
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    background: #198754;
+    color: #fff;
+    border-radius: .25rem;
+    border: 1px solid #174;
+}
+
+.header-editado-correctamente {
+    font-weight: 400;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    user-select: none;
+    padding: 2rem 2rem;
+}
+
+.borrado-correctamente {
+    display: none;
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    background: #dc3545;
+    color: #fff;
+    border-radius: .25rem;
+    border: 1px solid #a34;
+}
+
+.header-borrado-correctamente {
+    font-weight: 400;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    user-select: none;
+    padding: 2rem 2rem;
 }

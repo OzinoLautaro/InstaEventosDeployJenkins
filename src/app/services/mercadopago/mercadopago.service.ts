@@ -1,18 +1,24 @@
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { MP_PRIVATE_KEY } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class MercadopagoService {
 
-  constructor(private http: HttpClient) {}
+  private private_key: string;
+
+  constructor(private http: HttpClient) {
+    this.private_key = MP_PRIVATE_KEY;
+  }
 
   createPreference(opcion: number): Promise<any> {
     
     const headers = {
-      Authorization: `Bearer TEST-2324857734347598-082713-9f853aaf8e2e07acda6b2325ef9317cd-230878580`
+      Authorization: `Bearer ${this.private_key}`
     }
 
     let preference;
@@ -92,7 +98,7 @@ export class MercadopagoService {
 
   getPaymentData(id: any): Observable<any> {
     const headers = {
-      Authorization: `Bearer TEST-2324857734347598-082713-9f853aaf8e2e07acda6b2325ef9317cd-230878580`
+      Authorization: `Bearer ${this.private_key}`
     }
     return this.http.get(`https://api.mercadopago.com/v1/payments/${id}`, {headers});
   }

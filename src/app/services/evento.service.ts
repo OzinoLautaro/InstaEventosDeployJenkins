@@ -29,5 +29,7 @@ export class EventoService {
     return this.firestore.collection('eventos').doc(id).update(data);
   }
 
-
+  /* getStorage(): Observable<any> {
+    return this.
+  } */
 }

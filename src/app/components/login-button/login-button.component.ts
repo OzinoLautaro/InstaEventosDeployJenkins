@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { OauthService } from 'src/app/services/oauth.service';
-import { SubscripcionService } from 'src/app/services/subscripcion/subscripcion.service';
+import { SuscripcionService } from 'src/app/services/suscripcion/suscripcion.service';
 import { DISCORD_LOGIN_URL } from 'src/environments/environment';
 
 @Component({
@@ -16,7 +16,7 @@ export class LoginButtonComponent implements OnInit, AfterViewInit {
 
   userName:string = "";
 
-  constructor(public _oauth: OauthService, private _premium: SubscripcionService) {
+  constructor(public _oauth: OauthService, private _premium: SuscripcionService) {
   }
 
   ngOnInit(): void {
@@ -28,21 +28,26 @@ export class LoginButtonComponent implements OnInit, AfterViewInit {
         this.userName = res.username;
       })
     }
-    // Sacar la opcion del boton premium
     
   }
 
   ngAfterViewInit(): void {
-    if (localStorage.getItem('premium')) {
-      const premium_btn: any = document.querySelector('li.premium-button');
-      const btn_username: any = document.querySelector('.btn-color');
-      const coronita: any = document.querySelector('.coronita');
-      const avatar: any = document.querySelector('.foto-perfil');
-      coronita.style.display = "block";
-      avatar.style.bottom = "4px";
-      premium_btn.style.display = "none";
-      btn_username.style.color = "rgb(255, 195, 79)";
-    }
+
+    this._premium.isPremium().then(res => {
+      if (res) {
+        const btn_username: any = document.querySelector('.btn-color');
+        const coronita: any = document.querySelector('.coronita');
+        const avatar: any = document.querySelector('.foto-perfil');
+        coronita.style.display = "block";
+        avatar.style.bottom = "4px";
+        btn_username.style.color = "rgb(255, 195, 79)";
+      }
+      else {
+        const premium_btn: any = document.querySelector('li.premium-button');
+        premium_btn.style.display = "block";
+      }
+    })
+
   }
 
   loginConDiscord = () => {

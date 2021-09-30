@@ -31,8 +31,16 @@ export class MisEventosComponent implements OnInit {
         this.misEventos = [];
         for (let evento of res) {
           if (evento.payload.doc.data().idCreador == data.id) {
+            let fecha: Date = evento.payload.doc.data().fecha.toDate();
+            let date: string = fecha.getDate() < 10 ? '0' + fecha.getDate() : fecha.getDate().toString();
+            let mes: string = fecha.getMonth() < 10 ? '0' + fecha.getMonth() : fecha.getMonth().toString();
+            let hora: string = fecha.getHours() < 10 ? '0' + fecha.getHours() : fecha.getHours().toString();
+            let minutos: string = fecha.getMinutes() < 10 ? '0' + fecha.getMinutes() : fecha.getMinutes().toString();
+            let segundos: string = fecha.getSeconds() < 10 ? '0' + fecha.getSeconds() : fecha.getSeconds().toString();
+            let fechaArreglada: string = fecha.getFullYear() + '-' + mes + '-' + date + ' ' + hora + ':' + minutos + ':' + segundos;
             this.misEventos.push({
               id: evento.payload.doc.id,
+              fechaArreglada,
               ...evento.payload.doc.data()
             });
           }
@@ -56,14 +64,17 @@ export class MisEventosComponent implements OnInit {
   borrarEvento = () => {
     const cartelBorrar: any = document.querySelector(".borrar-cartel-fondo");
     cartelBorrar.style.display = "none";
-    
-    console.log(this.eventoElegido)
     this._eventoService.eliminarEvento(this.eventoElegido).then(() => {
       console.log("Evento borrado correctamente");
     }).catch(error => {
       console.log(error);
     })
     this.eventoElegido = "";
+    const cartelBorradoCorrectamente: any = document.querySelector(".borrado-correctamente");
+    cartelBorradoCorrectamente.style.display = "block";
+    setTimeout(() => {
+      cartelBorradoCorrectamente.style.display = "none";
+    }, 3000)
   }
 
   mostrarCartelEditar = (idEvento: string, opcion: string) => {
@@ -81,8 +92,12 @@ export class MisEventosComponent implements OnInit {
   }
 
   editarEvento = () => {
+    
+    if (!this.editarEventoForm.value.data) return;
+
     const cartelEditar: any = document.querySelector(".editar-cartel-fondo");
     cartelEditar.style.display = "none";
+
     let obj = {};
     if (this.opcionElegidaEditar == 'nombre') {
       obj = {
@@ -95,8 +110,9 @@ export class MisEventosComponent implements OnInit {
       }
     }
     else if (this.opcionElegidaEditar == 'fecha') {
+      const fecha: Date = new Date(this.editarEventoForm.value.data);
       obj = {
-        fecha: this.editarEventoForm.value.data
+        fecha
       }
     }
     else return;
@@ -107,5 +123,11 @@ export class MisEventosComponent implements OnInit {
     })
     this.eventoElegido = "";
     this.opcionElegidaEditar = "";
+
+    const cartelEditadoCorrectamente: any = document.querySelector(".editado-correctamente");
+    cartelEditadoCorrectamente.style.display = "block";
+    setTimeout(() => {
+      cartelEditadoCorrectamente.style.display = "none";
+    }, 3000)
   }
 }

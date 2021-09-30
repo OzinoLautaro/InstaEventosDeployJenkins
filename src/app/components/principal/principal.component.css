@@ -5,7 +5,7 @@ body{
 }
 
 .left-container {
-    padding-top: 140px;
+    padding-top: 130px;
     padding-left: 150px;
     width: 45%;
 }
@@ -16,11 +16,12 @@ body{
     color: rgb(255, 255, 255);
     border-radius: 3%;
     font-weight: unset;
+    padding: 20px;
 }
 
 #BGazo p{
     margin-left: 5px;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     font-family: 'Courier New', Courier, monospace;
 }
 #BGazo a{
@@ -34,7 +35,7 @@ body{
 }
 
 .right-container {
-    padding-top: 20px;
+    padding-top: 50px;
     padding-left: 170px;
 
 }
