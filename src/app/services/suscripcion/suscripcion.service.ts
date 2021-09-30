@@ -44,7 +44,10 @@ export class SuscripcionService {
 
       for ( let element of subs ) {
         if ( element.payload.doc.data().idUsuario == userId ) {
-          resolve(true);
+          let fecha_final = new Date(element.payload.doc.data().fechaFinal);
+          if (fecha_final.getTime() > Date.now()) {
+            resolve(true);
+          }
         }
       }
 

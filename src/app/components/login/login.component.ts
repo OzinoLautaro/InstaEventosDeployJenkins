@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', data.access_token);
       });
 
-      await this._oauthService.getUser().toPromise().then(async data => {
+      /* await this._oauthService.getUser().toPromise().then(async data => {
 
         this.userId = data.id;
         
@@ -39,8 +39,9 @@ export class LoginComponent implements OnInit {
           }
           window.location.href = '/principal';
         });
-      });
-
+      }); */
+      
+      window.location.href = '/principal';
     })
   }
 
