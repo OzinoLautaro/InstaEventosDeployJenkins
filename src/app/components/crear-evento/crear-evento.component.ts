@@ -31,12 +31,16 @@ export class CrearEventoComponent implements OnInit, AfterViewInit {
 
   imgUrl: string = "";
 
+  pub: boolean = false;
+
   constructor(private _oauth: OauthService, private fb: FormBuilder, private _eventoService: EventoService, private router: Router, private storage: AngularFireStorage, private _premium: SuscripcionService) {
     this.isLoggedIn = localStorage.getItem('token') ? true : false;
     this.crearEvento = this.fb.group({
       nombre: ['', Validators.required],
       fecha: ['', Validators.required],
-      descripcion: ['', Validators.required]
+      descripcion: ['', Validators.required],
+      publico: '',
+      invitacion: ""
     });
   }
 
@@ -158,7 +162,8 @@ export class CrearEventoComponent implements OnInit, AfterViewInit {
       fecha: fechaEvento,
       descripcion: this.crearEvento.value.descripcion,
       imgUrl: this.imgUrl,
-      publico: true
+      publico: this.crearEvento.value.publico,
+      invitacion: this.crearEvento.value.invitacion
     }
     
     this.mostrarCartelEventoCreado();
