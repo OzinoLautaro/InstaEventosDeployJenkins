@@ -33,8 +33,9 @@
             <textarea id="descripcion-evento" placeholder="Descripción del evento" formControlName="descripcion" required></textarea>
             <label for="nombre-evento">Seleccionar imagen:</label>
             <input type="file" accept=".png, .jpg, .jpeg" placeholder="Insertar imagen" formControlName="imagen" (change)="onUpload($event)" required>
+            <mat-slide-toggle ngModel formControlName="publico">Publico</mat-slide-toggle>
+            <input *ngIf="this.crearEvento.value.publico" type="text" id="invitacion-ds" placeholder="Invitacion Discord" formControlName="invitacion" >
             <div class="submit-btn-container">
-                
                 <button class="submit-btn">Crear evento</button>
             </div>
         </form>
