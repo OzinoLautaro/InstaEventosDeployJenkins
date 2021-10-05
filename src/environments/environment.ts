@@ -28,5 +28,5 @@ export const REDIRECT_URI = "http://localhost:4200/login";
 export const DISCORD_LOGIN_URL = "https://discord.com/api/oauth2/authorize?client_id=844270250118873128&redirect_uri=http%3A%2F%2Flocalhost%3A4200%2Flogin&response_type=code&scope=connections%20identify%20guilds";
 export const DISCORD_TOKEN_URL = "https://discord.com/api/oauth2/token";
 
-export const MP_PUBLIC_KEY = 'TEST-a535f7cd-0217-4c82-8f48-04793bebfc27';
-export const MP_PRIVATE_KEY = 'TEST-2324857734347598-082713-9f853aaf8e2e07acda6b2325ef9317cd-230878580';
+export const MP_PUBLIC_KEY = 'APP_USR-a9dfe689-b97a-4ea5-b65d-4e1e0d3f2b84';
+export const MP_PRIVATE_KEY = 'APP_USR-2324857734347598-082713-d364f6c00d67c7a4a7f5587157d1436f-230878580';
