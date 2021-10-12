@@ -12,15 +12,50 @@ name: Deploy to Firebase Hosting on merge
       - main
 
 jobs:
-  build_and_deploy:
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Install
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Install Dependencies
         run: npm install
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: Build
+        run: npm run ng serve
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@master
         with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_DISCORDBOT_946B9 }}'
-          channelId: live
-          projectId: discordbot-946b9
+          name: dist
+          path: dist
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Download Artifact
+        uses: actions/download-artifact@master
+        with:
+          name: dist
+          path: dist
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: 1//0hpN9ju3lbJhFCgYIARAAGBESNwF-L9IrcLGX80H2drKsLUfWDZDQZRUhpvz8GqSa75bTW8xJebLxlumV2Y6B7XuxQ0375qE8Zgw
+
+#jobs:
+#  build_and_deploy:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#      - name: Install
+#        run: npm install
+#      - uses: FirebaseExtended/action-hosting-deploy@v0
+#        with:
+#          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+#         firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_DISCORDBOT_946B9 }}'
+#          channelId: live
+#          projectId: discordbot-946b9
