@@ -12,39 +12,22 @@ name: Deploy to Firebase Hosting on merge
       - main
 
 jobs:
-  build:
-    name: Build
+  firebase-deploy:
+
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@master
-      - name: Install Dependencies
-        run: npm install
-      - name: Build
-        run: npm run ng build
-      - name: Archive Production Artifact
-        uses: actions/upload-artifact@master
-        with:
-          name: dist
-          path: dist
-  deploy:
-    name: Deploy
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@master
-      - name: Download Artifact
-        uses: actions/download-artifact@master
-        with:
-          name: dist
-          path: dist
-      - name: Deploy to Firebase
-        uses: w9jds/firebase-action@master
-        with:
-          args: deploy --only hosting
-        env:
-          FIREBASE_TOKEN: 1//0hpN9ju3lbJhFCgYIARAAGBESNwF-L9IrcLGX80H2drKsLUfWDZDQZRUhpvz8GqSa75bTW8xJebLxlumV2Y6B7XuxQ0375qE8Zgw
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@master
+      with:
+        node-version: '10.x'
+    - run: npm install
+    - run: npm run build:prod
+    - uses: w9jds/firebase-action@master
+      with:
+        args: deploy --only hosting
+      env:
+        FIREBASE_TOKEN: 1//0hpN9ju3lbJhFCgYIARAAGBESNwF-L9IrcLGX80H2drKsLUfWDZDQZRUhpvz8GqSa75bTW8xJebLxlumV2Y6B7XuxQ0375qE8Zgw
 
 #jobs:
 #  build_and_deploy:
