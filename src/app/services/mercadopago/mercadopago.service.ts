@@ -30,9 +30,9 @@ export class MercadopagoService {
         quantity: 1,
       }],
       back_urls: {
-        "success": "http://localhost:4200/procesar-pago",
-        "failure": "http://localhost:4200/procesar-pago",
-        "pending": "http://localhost:4200/procesar-pago"
+        "success": "https://discordbot-946b9.web.app/procesar-pago",
+        "failure": "https://discordbot-946b9.web.app/procesar-pago",
+        "pending": "https://discordbot-946b9.web.app/procesar-pago"
       },
       auto_return: 'approved',
       payment_methods: {
