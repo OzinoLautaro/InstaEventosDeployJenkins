@@ -20,7 +20,8 @@ import { MisEventosComponent } from './components/mis-eventos/mis-eventos.compon
 import { PremiumComponent } from './components/premium/premium.component';
 import { ProcesarPagoComponent } from './components/procesar-pago/procesar-pago.component';
 import { CalendarioPublicoComponent } from './components/calendario-publico/calendario-publico.component';
-
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 
 
 @NgModule({
@@ -46,11 +47,13 @@ import { CalendarioPublicoComponent } from './components/calendario-publico/cale
     AngularFireModule.initializeApp(env.firebase),
     AngularFirestoreModule,
     FormsModule,
+    MatSlideToggleModule,
     ReactiveFormsModule,
     HttpClientModule,
     AuthModule.forRoot({
       ...env.auth,
-    })
+    }),
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
