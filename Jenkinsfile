@@ -3,22 +3,25 @@ pipeline {
     docker { image 'node:latest' }
   }
   stages {
-    stage('Install') {
-      steps { sh 'npm install' }
+    stage('Install and build') {
+      steps {
+        sh 'npm install'
+        sh 'ng build'
+      }
     }
 
     stage('Test') {
       parallel {
-        stage('Static code analysis') {
-            steps { sh 'npm run-script lint' }
+        stage('End 2 end test') {
+            steps { sh 'ng e2e' }
         }
         stage('Unit tests') {
-            steps { sh 'npm run-script test' }
+            steps { sh 'ng test' }
         }
       }
     }
 
-    stage('Build') {
+    stage('Open') {
       steps { sh 'ng serve --open' }
     }
   }
