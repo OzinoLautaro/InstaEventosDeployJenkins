@@ -8,7 +8,7 @@ node{
   }
   
   stage("Test"){
-    sh "ng test --browsers Chrome"
+    sh "ng test"
   }
   
   stage("Build"){
