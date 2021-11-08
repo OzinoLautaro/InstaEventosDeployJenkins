@@ -8,7 +8,7 @@ node{
   }
   
   stage("Test"){
-    sh "npm run test"
+    sh "ng test --browsers ChromeHeadless"
   }
   
   stage("Build"){
