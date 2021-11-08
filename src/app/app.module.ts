@@ -22,6 +22,8 @@ import { ProcesarPagoComponent } from './components/procesar-pago/procesar-pago.
 import { CalendarioPublicoComponent } from './components/calendario-publico/calendario-publico.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
+import { RouterTestingModule } from "@angular/router/testing";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 
 
 @NgModule({
@@ -50,6 +52,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle'
     MatSlideToggleModule,
     ReactiveFormsModule,
     HttpClientModule,
+    RouterTestingModule,
     AuthModule.forRoot({
       ...env.auth,
     }),
