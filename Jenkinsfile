@@ -1,29 +1,21 @@
-pipeline {
-  agent {
-    docker { image 'node:latest' }
+node{
+  stage('Checkout SCM'){
+    git branch: 'main', url: 'https://github.com/OzinoLautaro/InstaEventosDeployJenkins.git'
   }
-  stages {
-    stage('Install and build') {
-      steps {
-        sh 'npm install'
-        sh 'ng build'
-      }
-    }
-
-    stage('Test') {
-      parallel {
-        stage('End 2 end test') {
-            steps { sh 'ng e2e' }
-        }
-        stage('Unit tests') {
-            steps { sh 'ng test' }
-        }
-      }
-    }
-
-    stage('Open') {
-      steps { sh 'ng serve --open' }
-    }
+  
+  stage('Install node modules'){
+    sh "npm install"
+  }
+  
+  stage("Test"){
+    sh "npm run test-headless"
+  }
+  
+  stage("Build"){
+    sh "npm run build --prod"
+  }
+  
+  stage("Copy"){
+    sh "cp -a /var/lib/jenkins/workspace-Deploy-Eventos/dist/main/. /var/www/main/html/*"
   }
 }
-//https://www.youtube.com/watch?v=cbUqgS82d48
