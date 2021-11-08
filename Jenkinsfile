@@ -8,7 +8,7 @@ node{
   }
   
   stage("Test"){
-    sh "ng test"
+    sh "npm run test-headless"
   }
   
   stage("Build"){
