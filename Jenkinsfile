@@ -8,7 +8,7 @@ node{
   }
   
   stage("Test"){
-    sh "npm run test-headless"
+    sh "npm run test"
   }
   
   stage("Build"){
